@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lang Gan Wooden</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ==================== 导航栏 ==================== -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                Lang Gan<span class="brand-dot"></span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+                aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="#home" data-i18n="navHome">首页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Products.html" data-i18n="navProducts">产品展示</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#features" data-i18n="navFeatures">产品特征</a></li> 
+                    <li class="nav-item"><a class="nav-link" href="#about" data-i18n="navAbout">关于我们</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact" data-i18n="navContact">联系我们</a></li>
+                </ul>
+                <a href="#contact" class="btn btn-nav text-decoration-none" data-i18n="navBtn">联系我们</a>
+            </div>
+            <div class="lang-switch">
+                <select id="langSelect">
+                    <option value="zh">🇨🇳 中文</option>
+                    <option value="en">🇺🇸 English</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+    <!-- ==================== 轮播图 ==================== -->
+        <!-- ==================== 轮播图 ==================== -->
+    <div class="container">
+    <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="4000">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+           <div class="carousel-item active">
+                <img src="img/img-1-16.png" class="d-block w-100" alt="产品轮播图 1">
+                <div class="carousel-caption">
+                    <h5 class="highlight" data-i18n="carouselTitle1">匠心造物</h5>
+                    <p data-i18n="carouselDesc1">臻选材料，精湛技艺</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="img/img-2-16.jpg" class="d-block w-100" alt="">
+                <div class="carousel-caption">
+                    <h5 data-i18n="carouselTitle2">精湛工艺，绝对信赖</h5>
+                    <p data-i18n="carouselDesc2">卓越驱动我们前行</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="img/logo.png" class="d-block w-100" alt="产品轮播图 3">
+                <div class="carousel-caption">
+                    <h5 data-i18n="carouselTitle3">只为造极，不负所托</h5>
+                    <p data-i18n="carouselDesc3">我们坚信，伟大的艺术始于伟大的材料</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">上一张</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">下一张</span>
+        </button>
+    </div>
+    <!-- ==================== Hero 主视觉区 ==================== -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1>
+                        <span data-i18n="heroTitle">享受生活</span><br>
+                        <span class="highlight" data-i18n="heroSubtitle">重新定义</span>
+                        <span data-i18n="heroSuffix">你的居住环境</span>
+                    </h1>
+                    <p class="lead mt-3" data-i18n="heroDesc">
+                        琅玕工坊 的资深匠人通过数百道手工工序为木作注入灵魂，追求从宏观到微观的绝对精准。
+                    </p>
+                    <div class="d-flex gap-3 mt-4 flex-wrap">
+                        <a href="#products" class="btn btn-primary btn-lg rounded-pill px-4 fw-semibold" data-i18n="heroBtn1">探索产品</a>
+                        <a href="#features" class="btn btn-outline-primary btn-lg rounded-pill px-4 fw-semibold" data-i18n="heroBtn2">了解更多</a>
+                    </div>
+                    <div class="hero-badges">
+                        <span class="hero-badge"><i class="bi bi-check-circle-fill" data-i18n="herobadge1"></i></span>
+                        <span class="hero-badge"><i class="bi bi-globe2" data-i18n="herobadge2"></i></span>
+                        <span class="hero-badge"><i class="bi bi-people-fill" data-i18n="herobadge3"></i></span>
+                    </div>
+                </div>
+                <div class="col-lg-6 hero-visual">
+                    <div class="hero-product-img">
+                            <img src="img/img-3.jpg" alt="产品主图展示" style="max-width: 100%; height: auto;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 统计数据 ==================== -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="stats-row">
+                <div class="stat-item">
+                    <div class="stat-number">50K+</div>
+                    <div class="stat-label" data-i18n="container1">满意客户</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">120+</div>
+                    <div class="stat-label" data-i18n="container2">产品系列</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label" data-i18n="container3">好评率</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label" data-i18n="container4">覆盖国家</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 产品展示区 ==================== -->
+    <section class="section" id="products">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge-custom" data-i18n="header1">精选推荐</span>
+                <h2 data-i18n="header2">热门产品</h2>
+                <p data-i18n="header3">每一款产品都经过精心打磨，只为给你带来最好的体验。</p>
+                <a href="Products.html" class="btn btn-outline-primary rounded-pill mt-2" data-i18n="btn">查看全部产品 <i class="bi bi-arrow-right"></i></a>
+            </div>
+            <div class="row g-4">
+                <!-- 产品 1 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <span class="product-tag" data-i18n="producttag1">热卖</span>
+                            <img src="img/products-1.jpg" alt="Wooden pendant86">
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category" data-i18n="productcategory1">生活摆件</div>
+                            <div class="product-title" data-i18n="producttitle1">逐光鹿</div>
+                            <p class="product-desc" data-i18n="productdesc1">逐光鹿，献给热爱生活、勇攀高峰的你</p>
+                            <div class="product-price">¥19 <span class="old-price">¥27</span></div>
+                            <div class="product-footer">
+                                <div class="product-rating">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-half"></i>
+                                    <span>(4.8)</span>
+                                </div>
+                                <a href="#" class="btn btn-sm btn-outline-primary rounded-pill" data-i18n="btn">查看详情</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 产品 2 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <span class="product-tag" data-i18n="producttag2">新品</span>
+                            <img src="img/product-2.jpg" alt="山水屏风">
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category" data-i18n="productcategory2">家具系列</div>
+                            <div class="product-title" data-i18n="producttitle2">纸巾立挂</div>
+                            <p class="product-desc" data-i18n="productdesc2">木艺纸巾架，让生活充满治愈小确辛。</p>
+                            <div class="product-price">¥25 <span class="old-price">¥36</span></div>
+                            <div class="product-footer">
+                                <div class="product-rating">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <span>(5.0)</span>
+                                </div>
+                                <a href="#" class="btn btn-sm btn-outline-primary rounded-pill" data-i18n="viewDetail">查看详情</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 产品 3 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="img/product-3.jpg" alt="生活用品">
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category" data-i18n="productcategory3">生活用品</div>
+                            <div class="product-title" data-i18n="producttitle3">精雕花鸟梳</div>
+                            <p class="product-desc" data-i18n="productdesc3">用生活的场景雕刻，带您领略木艺古典之美。</p>
+                            <div class="product-price">¥68</div>
+                            <div class="product-footer">
+                                <div class="product-rating">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star"></i>
+                                    <span>(4.5)</span>
+                                </div>
+                                <a href="#" class="btn btn-sm btn-outline-primary rounded-pill" data-i18n="viewDetail">查看详情</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 产品 4 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <span class="product-tag" data-i18n="producttag3">限时</span>
+                            <img src="img/product-4.jpg" alt="家居壁挂">
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category" data-i18n="productcategory4">家居壁挂</div>
+                            <div class="product-title" data-i18n="producttitle4">原木装饰镜</div>
+                            <p class="product-desc" data-i18n="productdesc4">匠心原木雕，映出生活自然之美。</p>
+                            <div class="product-price">¥58 <span class="old-price">¥79 </span></div>
+                            <div class="product-footer">
+                                <div class="product-rating">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <span>(4.9)</span>
+                                </div>
+                                <a href="#" class="btn btn-sm btn-outline-primary rounded-pill" data-i18n="viewDetail">查看详情</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 产品特色区 ==================== -->
+    <section class="section section-alt" id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge-custom" data-i18n="featuresTitle">产品特色</span>
+                <h2 data-i18n="featuresTitle">为什么选择琅玕工坊？</h2>
+                <p data-i18n="featuresDesc">我们传承千年木作技艺，只为打造经得起时间考验的艺术品。</p>
+            </div>
+
+            <!-- 特色 1 -->
+            <div class="feature-showcase">
+                <div class="feature-img">
+                    <img src="img/img-1-2.png" alt="精选名贵木材" style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+                </div>
+                <div class="feature-content">
+                    <div class="feature-icon-badge" style="background: rgba(139, 90, 43, 0.1); color: #8b5a2b;">
+                        <i class="bi bi-tree"></i>
+                    </div>
+                    <h3 data-i18n="feature1Title">精选名贵木材</h3>
+                    <p data-i18n="feature1Desc">从全球甄选黑胡桃、紫檀、花梨等名贵木材，每一块木料都经过严格筛选与自然干燥。</p>
+                    <ul class="feature-list">
+                        <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="feature1Item1">北美黑胡桃木</span></li>
+                        <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="feature1Item2">非洲紫檀木</span></li>
+                        <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="feature1Item3">缅甸花梨木</span></li>
+                        <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="feature1Item4">自然干燥三年以上</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 特色 2 -->
+            <div class="feature-showcase reverse">
+                <div class="feature-img">
+                    <img src="img/img-2-2.jpg" alt="传统榫卯工艺" style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+                </div>
+                <div class="feature-content">
+                    <div class="feature-icon-badge" style="background: rgba(25, 135, 84, 0.1); color: #198754;">
+                        <i class="bi bi-puzzle"></i>
+                    </div>
+                    <h3 data-i18n="feature2Title">传统中式木雕工艺</h3>
+                    <p data-i18n="feature2Desc">传承千年中式木雕工艺，纯手工打造，注入中式人文传统元素，历久弥新。</p>
+                    <ul class="feature-list">
+                        <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="feature2Item1">精细的手工雕刻</span></li>
+                        <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="feature2Item2">纯手工打磨</span></li>
+                        <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="feature2Item3">产品人文寓意</span></li>
+                        <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="feature2Item4">生活礼物最佳选择</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 特色 3 -->
+            <div class="feature-showcase">
+                <div class="feature-img">
+                    <img src="img/img-3-2.jpg" alt="匠心手工雕刻" style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+                </div>
+                <div class="feature-content">
+                    <div class="feature-icon-badge" style="background: rgba(255, 107, 53, 0.1); color: #ff6b35;">
+                        <i class="bi bi-palette"></i>
+                    </div>
+                    <h3 data-i18n="feature3Title">匠心手工雕刻</h3>
+                    <p data-i18n="feature3Desc">每一位匠人都有二十年以上经验，纯手工雕刻，每一件作品都是独一无二的艺术品。</p>
+                    <ul class="feature-list">
+                        <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="feature3Item1">二十年以上匠龄</span></li>
+                        <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="feature3Item2">纯手工雕刻</span></li>
+                        <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="feature3Item3">个性化定制</span></li>
+                        <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="feature3Item4">终身保养服务</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 关于我们 ==================== -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge-custom" data-i18n="aboutTitle">关于我们</span>
+                <h2 data-i18n="aboutTitle">我们的故事</h2>
+                <p data-i18n="aboutSubtitle">一群热爱木作的人，怀揣着传承工艺的梦想走到了一起。</p>
+            </div>
+            <div class="about-content text-center">
+                <p data-i18n="aboutP1">
+                    琅玕工坊的成立，是由一群来自不同地方的资深匠人共同建设，从深耕十多年的优秀设计，以及多年经验的木厂者开始。我们相信，真正的好木作应该经得起时间的考验，能够代代相传。
+                </p>
+                <p data-i18n="aboutP2">
+                    产品从日常生活梳子，到家居装饰，生活质量提高的装饰品、产品远销30多个国家和地区的木作品牌，我们始终坚持"匠心为本、品质至上"的理念，每一件作品都承载着我们对木作艺术的极致追求。
+                </p>
+                <div class="team-img">
+                    <img src="img/img-3-16.jpg" alt="琅玕工坊团队" style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+                </div>
+                <p data-i18n="aboutP3">
+                    未来，我们将继续深耕木作工艺，融合现代设计美学，为全球用户带来更多兼具实用与艺术价值的木作精品，让中国传统木作文化走向世界。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 联系我们 ==================== -->
+    <section class="section section-alt" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge-custom" data-i18n="features3">联系我们</span>
+                <h2 data-i18n="contacts5">获取更多信息</h2>
+                <p data-i18n="contacts7">欢迎随时与我们联系。</p>
+            </div>
+            <div class="contact-grid">
+                <!-- 卡片 1 -->
+                <div class="contact-card">
+                    <h5 class="contact-card-name">Matjia liu</h5>
+                    <p class="contact-card-role"></p>
+                    <div class="contact-card-info">
+                        <i class="bi bi-telephone"></i>
+                        <a href="tel:+8613800000001">138-0000-0001</a>
+                    </div>
+                    <div class="contact-card-info">
+                        <i class="bi bi-envelope"></i>
+                        <a href="mailto:zhang@langgan.com">zhang@langgan.com</a>
+                    </div>
+                    <div class="contact-card-actions">
+                        <a href="#" class="contact-icon-btn wechat wechat-btn" title="微信" data-wechat="wechat13800000001"><i class="bi bi-wechat"></i></a>
+                        <a href="https://wa.me/8613800000001" class="contact-icon-btn whatsapp" title="WhatsApp" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                    </div>
+                </div>
+                <!-- 卡片 2 -->
+                <div class="contact-card">
+                    <div class="contact-card-avatar"><i class="bi bi-person-circle"></i></div>
+                    <h5 class="contact-card-name">李师傅</h5>
+                    <p class="contact-card-role">高级木匠</p>
+                    <div class="contact-card-info">
+                        <i class="bi bi-telephone"></i>
+                        <a href="tel:+8613800000002">138-0000-0002</a>
+                    </div>
+                    <div class="contact-card-info">
+                        <i class="bi bi-envelope"></i>
+                        <a href="mailto:li@langgan.com">li@langgan.com</a>
+                    </div>
+                    <div class="contact-card-actions">
+                        <a href="#" class="contact-icon-btn wechat wechat-btn" title="微信" data-wechat="wechat13800000002"><i class="bi bi-wechat"></i></a>
+                        <a href="https://wa.me/8613800000002" class="contact-icon-btn whatsapp" title="WhatsApp" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                    </div>
+                </div>
+                <!-- 卡片 3 -->
+                <div class="contact-card">
+                    <div class="contact-card-avatar"><i class="bi bi-person-circle"></i></div>
+                    <h5 class="contact-card-name">王师傅</h5>
+                    <p class="contact-card-role">设计总监</p>
+                    <div class="contact-card-info">
+                        <i class="bi bi-telephone"></i>
+                        <a href="tel:+8613800000003">138-0000-0003</a>
+                    </div>
+                    <div class="contact-card-info">
+                        <i class="bi bi-envelope"></i>
+                        <a href="mailto:wang@langgan.com">wang@langgan.com</a>
+                    </div>
+                    <div class="contact-card-actions">
+                        <a href="#" class="contact-icon-btn wechat wechat-btn" title="微信" data-wechat="wechat13800000003"><i class="bi bi-wechat"></i></a>
+                        <a href="https://wa.me/8613800000003" class="contact-icon-btn whatsapp" title="WhatsApp" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                    </div>
+                </div>
+                <!-- 卡片 4 -->
+                <div class="contact-card">
+                    <div class="contact-card-avatar"><i class="bi bi-person-circle"></i></div>
+                    <h5 class="contact-card-name">赵师傅</h5>
+                    <p class="contact-card-role">客户经理</p>
+                    <div class="contact-card-info">
+                        <i class="bi bi-telephone"></i>
+                        <a href="tel:+8613800000004">138-0000-0004</a>
+                    </div>
+                    <div class="contact-card-info">
+                        <i class="bi bi-envelope"></i>
+                        <a href="mailto:zhao@langgan.com">zhao@langgan.com</a>
+                    </div>
+                    <div class="contact-card-actions">
+                        <a href="#" class="contact-icon-btn wechat wechat-btn" title="微信" data-wechat="wechat13800000004"><i class="bi bi-wechat"></i></a>
+                        <a href="https://wa.me/8613800000004" class="contact-icon-btn whatsapp" title="WhatsApp" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                    </div>
+                </div>
+                <!-- 卡片 5 -->
+                <div class="contact-card">
+                    <div class="contact-card-avatar"><i class="bi bi-person-circle"></i></div>
+                    <h5 class="contact-card-name">陈师傅</h5>
+                    <p class="contact-card-role">雕刻大师</p>
+                    <div class="contact-card-info">
+                        <i class="bi bi-telephone"></i>
+                        <a href="tel:+8613800000005">138-0000-0005</a>
+                    </div>
+                    <div class="contact-card-info">
+                        <i class="bi bi-envelope"></i>
+                        <a href="mailto:chen@langgan.com">chen@langgan.com</a>
+                    </div>
+                    <div class="contact-card-actions">
+                        <a href="#" class="contact-icon-btn wechat wechat-btn" title="微信" data-wechat="wechat13800000005"><i class="bi bi-wechat"></i></a>
+                        <a href="https://wa.me/8613800000005" class="contact-icon-btn whatsapp" title="WhatsApp" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                    </div>
+                </div>
+                <!-- 卡片 6 -->
+                <div class="contact-card">
+                    <div class="contact-card-avatar"><i class="bi bi-person-circle"></i></div>
+                    <h5 class="contact-card-name">刘师傅</h5>
+                    <p class="contact-card-role">品控专家</p>
+                    <div class="contact-card-info">
+                        <i class="bi bi-telephone"></i>
+                        <a href="tel:+8613800000006">138-0000-0006</a>
+                    </div>
+                    <div class="contact-card-info">
+                        <i class="bi bi-envelope"></i>
+                        <a href="mailto:liu@langgan.com">liu@langgan.com</a>
+                    </div>
+                    <div class="contact-card-actions">
+                        <a href="#" class="contact-icon-btn wechat wechat-btn" title="微信" data-wechat="wechat13800000006"><i class="bi bi-wechat"></i></a>
+                        <a href="https://wa.me/8613800000006" class="contact-icon-btn whatsapp" title="WhatsApp" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                    </div>
+                </div>
+                <!-- 卡片 7 -->
+                <div class="contact-card">
+                    <div class="contact-card-avatar"><i class="bi bi-person-circle"></i></div>
+                    <h5 class="contact-card-name">周师傅</h5>
+                    <p class="contact-card-role">售后主管</p>
+                    <div class="contact-card-info">
+                        <i class="bi bi-telephone"></i>
+                        <a href="tel:+8613800000007">138-0000-0007</a>
+                    </div>
+                    <div class="contact-card-info">
+                        <i class="bi bi-envelope"></i>
+                        <a href="mailto:zhou@langgan.com">zhou@langgan.com</a>
+                    </div>
+                    <div class="contact-card-actions">
+                        <a href="#" class="contact-icon-btn wechat wechat-btn" title="微信" data-wechat="wechat13800000007"><i class="bi bi-wechat"></i></a>
+                        <a href="https://wa.me/8613800000007" class="contact-icon-btn whatsapp" title="WhatsApp" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                    </div>
+                </div>
+                <!-- 卡片 8 -->
+                <div class="contact-card">
+                    <div class="contact-card-avatar"><i class="bi bi-person-circle"></i></div>
+                    <h5 class="contact-card-name">吴师傅</h5>
+                    <p class="contact-card-role">运营总监</p>
+                    <div class="contact-card-info">
+                        <i class="bi bi-telephone"></i>
+                        <a href="tel:+8613800000008">138-0000-0008</a>
+                    </div>
+                    <div class="contact-card-info">
+                        <i class="bi bi-envelope"></i>
+                        <a href="mailto:wu@langgan.com">wu@langgan.com</a>
+                    </div>
+                    <div class="contact-card-actions">
+                        <a href="#" class="contact-icon-btn wechat wechat-btn" title="微信" data-wechat="wechat13800000008"><i class="bi bi-wechat"></i></a>
+                        <a href="https://wa.me/8613800000008" class="contact-icon-btn whatsapp" title="WhatsApp" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 微信二维码弹窗 -->
+    <div class="wechat-modal-overlay" id="wechatModal">
+        <div class="wechat-modal">
+            <button class="wechat-modal-close" id="wechatModalClose">&times;</button>
+            <div class="wechat-modal-avatar"><i class="bi bi-person-circle"></i></div>
+            <h4 class="wechat-modal-name" id="wechatModalName"></h4>
+            <p class="wechat-modal-id" id="wechatModalId"></p>
+            <div class="wechat-modal-qr">
+                <img id="wechatModalQr" src="" alt="微信二维码" />
+            </div>
+            <p class="wechat-modal-tip">长按或右键保存二维码，用微信扫一扫添加好友</p>
+            <a class="wechat-modal-download" id="wechatModalDownload" href="#" download="wechat_qr.png">保存二维码图片</a>
+        </div>
+    </div>
+
+    <!-- ==================== CTA 号召区 ==================== -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 data-i18n="ctaTitle">准备好体验匠心木作了吗？</h2>
+            <p data-i18n="ctaDesc">加入全球 50,000+ 满意客户的行列，开启全新的品质生活体验。</p>
+            <a href="#products" class="btn btn-cta" data-i18n="ctaBtn">立即选购 <i class="bi bi-arrow-right ms-1"></i></a>
+        </div>
+    </section>
+
+    <!-- ==================== Footer 页脚 ==================== -->
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="footer-brand">琅玕工坊<span class="brand-dot"></span></div>
+                    <p class="footer-about" data-i18n="footerAbout">传承木作工艺，致力于为用户打造极致体验的木作精品。让艺术为生活赋能。</p>
+                    <div class="social-links">
+                        <a href="#" title="微信"><i class="bi bi-wechat"></i></a>
+                        <a href="#" title="微博"><i class="bi bi-sina-weibo"></i></a>
+                        <a href="#" title="抖音"><i class="bi bi-tiktok"></i></a>
+                        <a href="#" title="B站"><i class="bi bi-play-btn-fill"></i></a>
+                        <a href="#" title="GitHub"><i class="bi bi-github"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 data-i18n="footerProducts">产品中心</h5>
+                    <ul class="footer-links">
+                        <li><a href="#" data-i18n="footerProduct1">生活摆件</a></li>
+                        <li><a href="#" data-i18n="footerProduct2">家具系列</a></li>
+                        <li><a href="#" data-i18n="footerProduct3">文房雅器</a></li>
+                        <li><a href="#" data-i18n="footerProduct4">茶道器具</a></li>
+                        <li><a href="#" data-i18n="footerProduct5">全部产品</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 data-i18n="footerSupport">支持服务</h5>
+                    <ul class="footer-links">
+                        <li><a href="#" data-i18n="footerSupport1">帮助中心</a></li>
+                        <li><a href="#" data-i18n="footerSupport2">售后服务</a></li>
+                        <li><a href="#" data-i18n="footerSupport3">使用手册</a></li>
+                        <li><a href="#" data-i18n="footerSupport4">常见问题</a></li>
+                        <li><a href="#" data-i18n="footerSupport5">保养指南</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 data-i18n="footerAbout2">关于我们</h5>
+                    <ul class="footer-links">
+                        <li><a href="#" data-i18n="footerAbout1">品牌故事</a></li>
+                        <li><a href="#" data-i18n="footerAbout2_2">新闻动态</a></li>
+                        <li><a href="#" data-i18n="footerAbout3">加入我们</a></li>
+                        <li><a href="#" data-i18n="footerAbout4">隐私政策</a></li>
+                        <li><a href="#" data-i18n="footerAbout5">服务条款</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 data-i18n="footerQuickLinks">快速链接</h5>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">产品展示</a></li>
+                        <li><a href="#features">产品特色</a></li>
+                        <li><a href="#about">关于我们</a></li>
+                        <li><a href="#contact">联系我们</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container" data-i18n="footerCopyright">
+                &copy; 2026 琅玕工坊. All rights reserved. 用匠心点亮生活。
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== 返回顶部 ==================== -->
+    <a href="#home" class="back-to-top" id="backToTop">
+        <i class="bi bi-chevron-up"></i>
+    </a>
+
+    <!-- ==================== Bootstrap JS ==================== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
