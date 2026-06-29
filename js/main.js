@@ -85,7 +85,9 @@ window.addEventListener('scroll', function () {
 
             modalName.textContent = name;
             modalId.textContent = '微信号：' + wechatId;
-            var qrUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=' + encodeURIComponent(wechatId);
+
+            var qrImg = this.getAttribute('data-wechat-qr');
+            var qrUrl = qrImg || 'https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=' + encodeURIComponent(wechatId);
             modalQr.src = qrUrl;
             modalDownload.href = qrUrl;
             modal.classList.add('active');
