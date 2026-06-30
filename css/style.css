@@ -768,11 +768,26 @@ body {
     }
 }
 
-/* 响应式：手机 4 列 */
+/* 响应式：手机 2 列 */
 @media (max-width: 575px) {
     .contact-grid {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 8px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    .contact-card {
+        padding: 16px 12px 14px;
+    }
+    .contact-card-name {
+        font-size: 14px;
+    }
+    .contact-card-role {
+        font-size: 11px;
+    }
+    .contact-card-info {
+        font-size: 12px;
+    }
+    .contact-card-info a {
+        font-size: 11px;
     }
 }
 
