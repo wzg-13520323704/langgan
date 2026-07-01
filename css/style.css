@@ -637,7 +637,7 @@ body {
 /* ========== 联系我们 8 格卡片 ========== */
 .contact-grid {
     display: grid;
-    grid-template-columns: repeat(8, minmax(0, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: 10px;
     margin-top: 10px;
 }
@@ -768,26 +768,49 @@ body {
     }
 }
 
-/* 响应式：手机 2 列 */
+/* 响应式：手机 3 列 */
 @media (max-width: 575px) {
     .contact-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 6px;
     }
     .contact-card {
-        padding: 16px 12px 14px;
+        padding: 10px 6px 8px;
+        border-radius: 10px;
+        min-width: 0;
+        overflow: hidden;
     }
     .contact-card-name {
-        font-size: 14px;
+        font-size: 12px;
+        margin-bottom: 2px;
     }
     .contact-card-role {
-        font-size: 11px;
+        font-size: 10px;
+        padding: 1px 6px;
+        margin-bottom: 6px;
     }
     .contact-card-info {
+        font-size: 10px;
+        gap: 3px;
+        margin-bottom: 3px;
+    }
+    .contact-card-info i {
         font-size: 12px;
     }
     .contact-card-info a {
-        font-size: 11px;
+        font-size: 10px;
+        word-break: break-all;
+        overflow-wrap: break-word;
+    }
+    .contact-card-actions {
+        gap: 6px;
+        margin-top: 5px;
+        padding-top: 6px;
+    }
+    .contact-icon-btn {
+        width: 26px;
+        height: 26px;
+        font-size: 13px;
     }
 }
 
