@@ -1,0 +1,5 @@
+name = "langgan-wooden"
+pages_build_output_dir = "."
+
+[vars]
+NOTIFY_EMAIL = "2128836803@qq.com"
