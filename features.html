@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品特征 - Lang Gan Wooden</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .stats-section {
+            background: #fff;
+            padding: 60px 0;
+        }
+        .stat-item {
+            text-align: center;
+            padding: 32px 16px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        .stat-item:hover {
+            background: #f8f9fa;
+            transform: translateY(-4px);
+        }
+        .stat-item .stat-number {
+            font-size: 42px;
+            font-weight: 800;
+            color: #0d6efd;
+            line-height: 1.2;
+        }
+        .stat-item .stat-label {
+            font-size: 15px;
+            color: #6c757d;
+            margin-top: 8px;
+        }
+        .process-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 32px 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            text-align: center;
+            height: 100%;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .process-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+        }
+        .process-card .process-step {
+            position: absolute;
+            top: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 36px;
+            height: 36px;
+            background: #0d6efd;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+        }
+        .process-card .process-icon {
+            width: 64px;
+            height: 64px;
+            background: #e8f0fe;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 16px auto 20px;
+            font-size: 28px;
+            color: #0d6efd;
+        }
+        .process-card h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+        .process-card p {
+            font-size: 14px;
+            color: #6c757d;
+            line-height: 1.7;
+            margin: 0;
+        }
+        .quality-badge-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+        .quality-badge-item {
+            background: #fff;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            padding: 28px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .quality-badge-item:hover {
+            border-color: #0d6efd;
+            box-shadow: 0 4px 16px rgba(13,110,253,0.1);
+        }
+        .quality-badge-item .qb-icon {
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+        .quality-badge-item h5 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 6px;
+        }
+        .quality-badge-item p {
+            font-size: 13px;
+            color: #6c757d;
+            margin: 0;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== 导航栏 ==================== -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                Lang Gan<span class="brand-dot"></span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+                aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html" data-i18n="navHome">首页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Products.html" data-i18n="navProducts">产品展示</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="features.html" data-i18n="navFeatures">产品特征</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html" data-i18n="navAbout">关于我们</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html" data-i18n="navContact">联系我们</a></li>
+                </ul>
+                <a href="contact.html" class="btn btn-nav text-decoration-none" data-i18n="navBtn">联系我们</a>
+            </div>
+            <div class="lang-switch">
+                <select id="langSelect">
+                    <option value="zh">🇨🇳 中文</option>
+                    <option value="en">🇺🇸 English</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== 页面头部 ==================== -->
+    <section class="page-header" style="padding-top: 120px; padding-bottom: 60px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); text-align: center;">
+        <div class="container">
+            <span class="badge-custom" data-i18n="featuresTitle">产品特色</span>
+            <h2 data-i18n="featuresTitle">为什么选择琅玕工坊？</h2>
+            <p data-i18n="featuresDesc">我们传承千年木作技艺，只为打造经得起时间考验的艺术品。</p>
+        </div>
+    </section>
+
+    <!-- ==================== 数据统计区 ==================== -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <div class="stat-number">30+</div>
+                        <div class="stat-label">出口国家与地区</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <div class="stat-number">50,000+</div>
+                        <div class="stat-label">全球满意客户</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <div class="stat-number">20+</div>
+                        <div class="stat-label">年匠龄团队</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">纯手工打造</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 三大核心特色 ==================== -->
+    <section class="section section-alt" id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge-custom" data-i18n="featuresTitle">核心优势</span>
+                <h2>三大核心特色，定义木作新标准</h2>
+                <p>从选材到工艺，从设计到服务，每一个环节我们都精益求精。</p>
+            </div>
+
+            <!-- 特色 1 -->
+            <div class="feature-showcase">
+                <div class="feature-img">
+                    <img src="img/img-1-2.png" alt="精选名贵木材" style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+                </div>
+                <div class="feature-content">
+                    <div class="feature-icon-badge" style="background: rgba(139, 90, 43, 0.1); color: #8b5a2b;">
+                        <i class="bi bi-tree"></i>
+                    </div>
+                    <h3 data-i18n="feature1Title">精选名贵木材</h3>
+                    <p data-i18n="feature1Desc">从全球甄选黑胡桃、紫檀、花梨等名贵木材，每一块木料都经过严格筛选与自然干燥。</p>
+                    <ul class="feature-list">
+                        <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="feature1Item1">北美黑胡桃木</span></li>
+                        <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="feature1Item2">非洲紫檀木</span></li>
+                        <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="feature1Item3">缅甸花梨木</span></li>
+                        <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="feature1Item4">自然干燥三年以上</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 特色 2 -->
+            <div class="feature-showcase reverse">
+                <div class="feature-img">
+                    <img src="img/img-2-2.jpg" alt="传统榫卯工艺" style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+                </div>
+                <div class="feature-content">
+                    <div class="feature-icon-badge" style="background: rgba(25, 135, 84, 0.1); color: #198754;">
+                        <i class="bi bi-puzzle"></i>
+                    </div>
+                    <h3 data-i18n="feature2Title">传统中式木雕工艺</h3>
+                    <p data-i18n="feature2Desc">传承千年中式木雕工艺，纯手工打造，注入中式人文传统元素，历久弥新。</p>
+                    <ul class="feature-list">
+                        <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="feature2Item1">精细的手工雕刻</span></li>
+                        <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="feature2Item2">纯手工打磨</span></li>
+                        <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="feature2Item3">产品人文寓意</span></li>
+                        <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="feature2Item4">生活礼物最佳选择</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 特色 3 -->
+            <div class="feature-showcase">
+                <div class="feature-img">
+                    <img src="img/img-3-2.jpg" alt="匠心手工雕刻" style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+                </div>
+                <div class="feature-content">
+                    <div class="feature-icon-badge" style="background: rgba(255, 107, 53, 0.1); color: #ff6b35;">
+                        <i class="bi bi-palette"></i>
+                    </div>
+                    <h3 data-i18n="feature3Title">匠心手工雕刻</h3>
+                    <p data-i18n="feature3Desc">每一位匠人都有二十年以上经验，纯手工雕刻，每一件作品都是独一无二的艺术品。</p>
+                    <ul class="feature-list">
+                        <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="feature3Item1">二十年以上匠龄</span></li>
+                        <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="feature3Item2">纯手工雕刻</span></li>
+                        <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="feature3Item3">个性化定制</span></li>
+                        <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="feature3Item4">终身保养服务</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 制作工艺流程 ==================== -->
+    <section class="section" style="background: #fff;">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge-custom">工艺流程</span>
+                <h2>一件作品的诞生之旅</h2>
+                <p>从一块原木到精美成品，每一件作品都要经历数十道严谨工序。</p>
+            </div>
+            <div class="row g-4 mt-2">
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-card">
+                        <div class="process-step">1</div>
+                        <div class="process-icon"><i class="bi bi-search"></i></div>
+                        <h4>严选原材</h4>
+                        <p>从全球优质林区甄选原木，每一块木料都经过纹理、密度、色泽等多维度筛选。</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-card">
+                        <div class="process-step">2</div>
+                        <div class="process-icon"><i class="bi bi-droplet"></i></div>
+                        <h4>自然干燥</h4>
+                        <p>木料经三年以上自然干燥处理，确保含水率稳定，防止开裂变形。</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-card">
+                        <div class="process-step">3</div>
+                        <div class="process-icon"><i class="bi bi-pencil"></i></div>
+                        <h4>手工雕刻</h4>
+                        <p>匠人根据设计稿手工雕刻，一刀一凿，赋予木料新的生命形态。</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-card">
+                        <div class="process-step">4</div>
+                        <div class="process-icon"><i class="bi bi-brush"></i></div>
+                        <h4>精细打磨</h4>
+                        <p>多道手工打磨工序，从粗到细，直至表面如丝绸般光滑细腻。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 品质承诺 ==================== -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge-custom">品质承诺</span>
+                <h2>我们对品质的坚持</h2>
+                <p>每一件琅玕出品的木作，都承载着我们对品质的极致追求。</p>
+            </div>
+            <div class="quality-badge-grid">
+                <div class="quality-badge-item">
+                    <div class="qb-icon">🌿</div>
+                    <h5>环保涂料</h5>
+                    <p>采用食品级木蜡油涂装，安全无毒，母婴可用</p>
+                </div>
+                <div class="quality-badge-item">
+                    <div class="qb-icon">🛡️</div>
+                    <h5>终身保养</h5>
+                    <p>购买即享终身免费保养服务，让木作历久弥新</p>
+                </div>
+                <div class="quality-badge-item">
+                    <div class="qb-icon">✨</div>
+                    <h5>独一无二</h5>
+                    <p>手工打造，每件纹理都不可复制，你的专属艺术品</p>
+                </div>
+                <div class="quality-badge-item">
+                    <div class="qb-icon">📦</div>
+                    <h5>安心包装</h5>
+                    <p>定制防震礼盒包装，确保运输途中完好无损</p>
+                </div>
+                <div class="quality-badge-item">
+                    <div class="qb-icon">🔄</div>
+                    <h5>30天无忧退换</h5>
+                    <p>不满意随时退换，我们为品质负责到底</p>
+                </div>
+                <div class="quality-badge-item">
+                    <div class="qb-icon">🌍</div>
+                    <h5>全球配送</h5>
+                    <p>支持30多个国家与地区配送，让木艺走向世界</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== Footer 页脚 ==================== -->
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="footer-brand">琅玕工坊<span class="brand-dot"></span></div>
+                    <p class="footer-about" data-i18n="footerAbout">传承木作工艺，致力于为用户打造极致体验的木作精品。让艺术为生活赋能。</p>
+                    <div class="social-links">
+                        <a href="#" title="微信"><i class="bi bi-wechat"></i></a>
+                        <a href="#" title="微博"><i class="bi bi-sina-weibo"></i></a>
+                        <a href="#" title="抖音"><i class="bi bi-tiktok"></i></a>
+                        <a href="#" title="B站"><i class="bi bi-play-btn-fill"></i></a>
+                        <a href="#" title="GitHub"><i class="bi bi-github"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 data-i18n="footerProducts">产品中心</h5>
+                    <ul class="footer-links">
+                        <li><a href="#" data-i18n="footerProduct1">生活摆件</a></li>
+                        <li><a href="#" data-i18n="footerProduct2">家具系列</a></li>
+                        <li><a href="#" data-i18n="footerProduct3">文房雅器</a></li>
+                        <li><a href="#" data-i18n="footerProduct4">茶道器具</a></li>
+                        <li><a href="#" data-i18n="footerProduct5">全部产品</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 data-i18n="footerSupport">支持服务</h5>
+                    <ul class="footer-links">
+                        <li><a href="#" data-i18n="footerSupport1">帮助中心</a></li>
+                        <li><a href="#" data-i18n="footerSupport2">售后服务</a></li>
+                        <li><a href="#" data-i18n="footerSupport3">使用手册</a></li>
+                        <li><a href="#" data-i18n="footerSupport4">常见问题</a></li>
+                        <li><a href="#" data-i18n="footerSupport5">保养指南</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 data-i18n="footerAbout2">关于我们</h5>
+                    <ul class="footer-links">
+                        <li><a href="#" data-i18n="footerAbout1">品牌故事</a></li>
+                        <li><a href="#" data-i18n="footerAbout2_2">新闻动态</a></li>
+                        <li><a href="#" data-i18n="footerAbout3">加入我们</a></li>
+                        <li><a href="#" data-i18n="footerAbout4">隐私政策</a></li>
+                        <li><a href="#" data-i18n="footerAbout5">服务条款</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 data-i18n="footerQuickLinks">快速链接</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html" data-i18n="navHome">首页</a></li>
+                        <li><a href="Products.html" data-i18n="navProducts">产品展示</a></li>
+                        <li><a href="features.html" data-i18n="features1">产品特色</a></li>
+                        <li><a href="about.html" data-i18n="features2">关于我们</a></li>
+                        <li><a href="contact.html" data-i18n="features3">联系我们</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                &copy; 2026 <span data-i18n="brand">琅玕工坊</span>. <span data-i18n="footerCopyright">All rights reserved. 用匠心点亮生活。</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== 返回顶部 ==================== -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="bi bi-chevron-up"></i>
+    </a>
+
+    <!-- ==================== JS ==================== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
