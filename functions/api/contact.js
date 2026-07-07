@@ -122,7 +122,7 @@ async function sendEmailViaResend(apiKey, toEmail, data) {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      from: '琅玕工坊 <noreply@langganwooden.com>',
+from: '琅玕工坊 <onboarding@resend.dev>',
       to: [toEmail],
       subject: emailSubject,
       html: htmlBody

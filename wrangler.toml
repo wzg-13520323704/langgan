@@ -1,5 +1,9 @@
 name = "langgan-wooden"
 pages_build_output_dir = "."
 
+[[d1_databases]]
+binding = "DB"
+database_name = "langgan-contacts"
+database_id = "152ff275-eb99-4872-b6a5-d2bf5aa540da"
 [vars]
 NOTIFY_EMAIL = "2128836803@qq.com"
