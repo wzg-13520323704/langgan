@@ -344,7 +344,17 @@ function switchLang(lang) {
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (i18n[lang] && i18n[lang][key]) {
-      el.textContent = i18n[lang][key];
+      if (el.children.length > 0) {
+        const text = i18n[lang][key];
+        for (const node of el.childNodes) {
+          if (node.nodeType === Node.TEXT_NODE) {
+            node.textContent = text;
+            break;
+          }
+        }
+      } else {
+        el.textContent = i18n[lang][key];
+      }
     }
   });
 
