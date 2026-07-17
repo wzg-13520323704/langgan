@@ -71,6 +71,7 @@ window.addEventListener('scroll', function () {
     if (!wechatBtns.length || !modal) return;
 
     function isMobile() {
+        // 通过 UA 检测是否为移动设备，或者支持触摸且屏幕宽度小于 992px
         return /Android|iPhone|iPad|iPod|webOS/i.test(navigator.userAgent) ||
                (navigator.maxTouchPoints > 0 && window.innerWidth < 992);
     }
@@ -96,7 +97,9 @@ window.addEventListener('scroll', function () {
     });
 
     function closeModal() {
+        // 移除弹窗的显示状态
         modal.classList.remove('active');
+        // 恢复页面滚动
         document.body.style.overflow = '';
     }
 

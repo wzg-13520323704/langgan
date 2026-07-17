@@ -337,15 +337,22 @@ const i18n = {
 
 let currentLang = 'zh';
 
+/**
+ * 切换网站语言功能函数
+ * @param {string} lang - 要切换的语言代码，如 'zh' 或 'en'
+ */
 function switchLang(lang) {
+  // 更新当前语言设置，并设置HTML文档的lang属性
   currentLang = lang;
   document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
 
+  // 处理所有带有data-i18n属性的元素，进行文本内容更新
   document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (i18n[lang] && i18n[lang][key]) {
-      if (el.children.length > 0) {
-        const text = i18n[lang][key];
+    const key = el.getAttribute('data-i18n'); // 获取国际化键值
+    if (i18n[lang] && i18n[lang][key]) { // 检查当前语言和键值是否存在
+      if (el.children.length > 0) { // 如果元素有子元素
+        const text = i18n[lang][key]; // 获取翻译文本
+        // 遍历子节点，找到第一个文本节点并更新其内容
         for (const node of el.childNodes) {
           if (node.nodeType === Node.TEXT_NODE) {
             node.textContent = text;
@@ -353,22 +360,26 @@ function switchLang(lang) {
           }
         }
       } else {
+        // 如果元素没有子元素，直接更新其文本内容
         el.textContent = i18n[lang][key];
       }
     }
   });
 
+  // 更新页面标题（如果存在翻译）
   if (i18n[lang] && i18n[lang].pageTitle) {
     document.title = i18n[lang].pageTitle;
   }
 
+  // 处理所有带有data-i18n-placeholder属性的元素，更新其placeholder值
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-    const key = el.getAttribute('data-i18n-placeholder');
-    if (i18n[lang] && i18n[lang][key]) {
-      el.placeholder = i18n[lang][key];
+    const key = el.getAttribute('data-i18n-placeholder'); // 获取placeholder的国际化键值
+    if (i18n[lang] && i18n[lang][key]) { // 检查当前语言和键值是否存在
+      el.placeholder = i18n[lang][key]; // 更新placeholder值
     }
   });
 
+  // 将当前语言设置保存到localStorage中
   localStorage.setItem('lang', lang);
 }
 
