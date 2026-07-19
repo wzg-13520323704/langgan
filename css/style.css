@@ -260,13 +260,14 @@ body {
 }
 
 .sc-card-center.fullscreen {
+    position: fixed;
     opacity: 1;
     width: 100vw;
     height: 100vh;
-    top: 50%;
-    left: 50%;
+    top: 0;
+    left: 0;
     border-radius: 0;
-    transform: translate(-50%, -50%) scale(1);
+    transform: none;
     z-index: 200;
 }
 
