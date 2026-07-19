@@ -104,9 +104,58 @@
                 </div>
                 <div class="col-lg-6 hero-visual">
                     <div class="hero-product-img">
-                            <img src="img/img-3.jpg" alt="产品主图展示" style="max-width: 100%; height: auto;">
+                            <img src="img/img-3.jpg" alt="产品主图展示" class="zoom-img" style="max-width: 100%; height: auto;">
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== X形双斜线滚动卡片区 ==================== -->
+    <section class="scroll-cards-section" id="scrollCards">
+        <div class="scroll-cards-sticky">
+            <div class="scroll-cards-container">
+                <!-- 左上角 2张 -->
+                <div class="sc-card" data-corner="tl" data-idx="0">
+                    <img src="img/products-1.jpg" alt="逐光鹿">
+                    <div class="sc-card-label">逐光鹿</div>
+                </div>
+                <div class="sc-card" data-corner="tl" data-idx="1">
+                    <img src="img/product-2.jpg" alt="纸巾立挂">
+                    <div class="sc-card-label">纸巾立挂</div>
+                </div>
+                <!-- 右上角 2张 -->
+                <div class="sc-card" data-corner="tr" data-idx="0">
+                    <img src="img/product-3.jpg" alt="精雕花鸟梳">
+                    <div class="sc-card-label">精雕花鸟梳</div>
+                </div>
+                <div class="sc-card" data-corner="tr" data-idx="1">
+                    <img src="img/product-4.jpg" alt="原木装饰镜">
+                    <div class="sc-card-label">原木装饰镜</div>
+                </div>
+                <!-- 右下角 2张 -->
+                <div class="sc-card" data-corner="br" data-idx="0">
+                    <img src="img/img-1-2.png" alt="精选木材">
+                    <div class="sc-card-label">精选木材</div>
+                </div>
+                <div class="sc-card" data-corner="br" data-idx="1">
+                    <img src="img/img-2-2.jpg" alt="传统工艺">
+                    <div class="sc-card-label">传统工艺</div>
+                </div>
+                <!-- 左下角 2张 -->
+                <div class="sc-card" data-corner="bl" data-idx="0">
+                    <img src="img/img-3-2.jpg" alt="匠心雕刻">
+                    <div class="sc-card-label">匠心雕刻</div>
+                </div>
+                <div class="sc-card" data-corner="bl" data-idx="1">
+                    <img src="img/img-3.jpg" alt="产品展示">
+                    <div class="sc-card-label">产品展示</div>
+                </div>
+                <!-- 中间主图 -->
+                <div class="sc-card sc-card-center" data-corner="center">
+                    <img src="img/img-1-16.png" alt="琅玕工坊">
+                    <div class="sc-card-label">琅玕工坊</div>
                 </div>
             </div>
         </div>
@@ -116,20 +165,20 @@
     <section class="py-5 bg-light">
         <div class="container">
             <div class="stats-row">
-                <div class="stat-item">
-                    <div class="stat-number">50K+</div>
+                <div class="stat-item reveal reveal-delay-1">
+                    <div class="stat-number" data-count="50">50K+</div>
                     <div class="stat-label" data-i18n="container1">满意客户</div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number">120+</div>
+                <div class="stat-item reveal reveal-delay-2">
+                    <div class="stat-number" data-count="120">120+</div>
                     <div class="stat-label" data-i18n="container2">产品系列</div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number">98%</div>
+                <div class="stat-item reveal reveal-delay-3">
+                    <div class="stat-number" data-count="98">98%</div>
                     <div class="stat-label" data-i18n="container3">好评率</div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number">30+</div>
+                <div class="stat-item reveal reveal-delay-4">
+                    <div class="stat-number" data-count="30">30+</div>
                     <div class="stat-label" data-i18n="container4">覆盖国家</div>
                 </div>
             </div>
@@ -139,7 +188,7 @@
     <!-- ==================== 产品展示区 ==================== -->
     <section class="section" id="products">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="badge-custom" data-i18n="header1">精选推荐</span>
                 <h2 data-i18n="header2">热门产品</h2>
                 <p data-i18n="header3">每一款产品都经过精心打磨，只为给你带来最好的体验。</p>
@@ -147,7 +196,7 @@
             </div>
             <div class="row g-4">
                 <!-- 产品 1 -->
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6 reveal-scale reveal-delay-1">
                     <div class="product-card">
                         <div class="product-img">
                             <span class="product-tag" data-i18n="producttag1">热卖</span>
@@ -173,7 +222,7 @@
                     </div>
                 </div>
                 <!-- 产品 2 -->
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6 reveal-scale reveal-delay-2">
                     <div class="product-card">
                         <div class="product-img">
                             <span class="product-tag" data-i18n="producttag2">新品</span>
@@ -199,7 +248,7 @@
                     </div>
                 </div>
                 <!-- 产品 3 -->
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6 reveal-scale reveal-delay-3">
                     <div class="product-card">
                         <div class="product-img">
                             <img src="img/product-3.jpg" alt="生活用品">
@@ -224,7 +273,7 @@
                     </div>
                 </div>
                 <!-- 产品 4 -->
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6 reveal-scale reveal-delay-4">
                     <div class="product-card">
                         <div class="product-img">
                             <span class="product-tag" data-i18n="producttag3">限时</span>
@@ -256,16 +305,16 @@
     <!-- ==================== 产品特色区 ==================== -->
     <section class="section section-alt" id="features">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="badge-custom" data-i18n="featuresTitle">产品特色</span>
                 <h2 data-i18n="featuresTitle">为什么选择琅玕工坊？</h2>
                 <p data-i18n="featuresDesc">我们传承千年木作技艺，只为打造经得起时间考验的艺术品。</p>
             </div>
 
             <!-- 特色 1 -->
-            <div class="feature-showcase">
+            <div class="feature-showcase reveal-left">
                 <div class="feature-img">
-                    <img src="img/img-1-2.png" alt="精选名贵木材" style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+                    <img src="img/img-1-2.png" alt="精选名贵木材" class="zoom-img" style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
                 </div>
                 <div class="feature-content">
                     <div class="feature-icon-badge" style="background: rgba(139, 90, 43, 0.1); color: #8b5a2b;">
@@ -283,9 +332,9 @@
             </div>
 
             <!-- 特色 2 -->
-            <div class="feature-showcase reverse">
+            <div class="feature-showcase reverse reveal-right">
                 <div class="feature-img">
-                    <img src="img/img-2-2.jpg" alt="传统榫卯工艺" style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+                    <img src="img/img-2-2.jpg" alt="传统榫卯工艺" class="zoom-img" style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
                 </div>
                 <div class="feature-content">
                     <div class="feature-icon-badge" style="background: rgba(25, 135, 84, 0.1); color: #198754;">
@@ -303,9 +352,9 @@
             </div>
 
             <!-- 特色 3 -->
-            <div class="feature-showcase">
+            <div class="feature-showcase reveal-left">
                 <div class="feature-img">
-                    <img src="img/img-3-2.jpg" alt="匠心手工雕刻" style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+                    <img src="img/img-3-2.jpg" alt="匠心手工雕刻" class="zoom-img" style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
                 </div>
                 <div class="feature-content">
                     <div class="feature-icon-badge" style="background: rgba(255, 107, 53, 0.1); color: #ff6b35;">
@@ -327,12 +376,12 @@
     <!-- ==================== 关于我们 ==================== -->
     <section class="section" id="about">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="badge-custom" data-i18n="aboutTitle">关于我们</span>
                 <h2 data-i18n="aboutTitle">我们的故事</h2>
                 <p data-i18n="aboutSubtitle">一群热爱木作的人，怀揣着传承工艺的梦想走到了一起。</p>
             </div>
-            <div class="about-content text-center">
+            <div class="about-content text-center reveal">
                 <p data-i18n="aboutP1">
                     琅玕工坊的成立，是由一群来自不同地方的资深匠人共同建设，从深耕十多年的优秀设计，以及多年经验的木厂者开始。我们相信，真正的好木作应该经得起时间的考验，能够代代相传。
                 </p>
@@ -352,12 +401,12 @@
     <!-- ==================== 联系我们 ==================== -->
     <section class="section section-alt" id="contact">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="badge-custom" data-i18n="features3">联系我们</span>
                 <h2 data-i18n="contactFormTitle">给我们留言</h2>
                 <p data-i18n="contactFormDesc">有任何问题或合作意向，欢迎随时与我们联系，我们会尽快回复。</p>
             </div>
-            <div class="contact-wrapper">
+            <div class="contact-wrapper reveal">
                 <div class="contact-info-panel">
                     <div class="contact-info-item">
                         <div class="contact-info-icon"><i class="bi bi-geo-alt"></i></div>
@@ -441,7 +490,7 @@
     </div>
 
     <!-- ==================== CTA 号召区 ==================== -->
-    <section class="cta-section">
+    <section class="cta-section reveal">
         <div class="container">
             <h2 data-i18n="ctaTitle">准备好体验匠心木作了吗？</h2>
             <p data-i18n="ctaDesc">加入全球 50,000+ 满意客户的行列，开启全新的品质生活体验。</p>
@@ -522,6 +571,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/i18n.js?v=2"></script>
     <script src="js/contact.js"></script>
+    <script src="js/animations.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
