@@ -2,10 +2,10 @@
   X-Content-Type-Options: nosniff
 
 /css/*
-  Cache-Control: public, max-age=2592000, immutable
+  Cache-Control: public, max-age=86400
 
 /js/*
-  Cache-Control: public, max-age=2592000
+  Cache-Control: public, max-age=86400
 
 /img/*
   Cache-Control: public, max-age=2592000, immutable

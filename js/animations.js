@@ -111,14 +111,16 @@
     }
 
     // ========== X形双斜线：顺时针展示 + 逆时针消失 ==========
-    var scrollSection = document.querySelector('.scroll-cards-section');
-    var centerCard = document.querySelector('.sc-card-center');
-    var cornerCards = document.querySelectorAll('.sc-card[data-corner]');
+    function initScrollCards() {
+        var scrollSection = document.querySelector('.scroll-cards-section');
+        var centerCard = document.querySelector('.sc-card-center');
+        var cornerCards = document.querySelectorAll('.sc-card[data-corner]');
 
-    // 四角顺序：tl → tr → br → bl
-    var cornerOrder = ['tl', 'tr', 'br', 'bl'];
+        if (!scrollSection || !cornerCards.length) {
+            return;
+        }
 
-    if (scrollSection && cornerCards.length) {
+        var cornerOrder = ['tl', 'tr', 'br', 'bl'];
         var cardTicking = false;
 
         function updateCards() {
@@ -127,19 +129,17 @@
             var sectionHeight = sectionRect.height;
             var viewportHeight = window.innerHeight;
 
-            // 滚动进度：0 → 1
+            if (sectionHeight <= viewportHeight) return;
+
             var progress = Math.max(0, Math.min(1, -sectionTop / (sectionHeight - viewportHeight)));
 
-            // 四个角的处理：每个角占 20% 进度
             cornerOrder.forEach(function (corner, ci) {
                 var cornerStart = ci * 0.2;
-                var cornerEnd = (ci + 1) * 0.2;
 
                 var cardsInCorner = document.querySelectorAll('.sc-card[data-corner="' + corner + '"]');
                 var cardsArray = Array.prototype.slice.call(cardsInCorner);
                 var cardCount = cardsArray.length;
 
-                // 只有 BL 角：idx 1 先出现，idx 0 后出现（反转顺序）
                 if (corner === 'bl') {
                     cardsArray.reverse();
                 }
@@ -155,7 +155,6 @@
                 });
             });
 
-            // 中间主图：75%-100%
             if (centerCard) {
                 if (progress >= 0.75 && progress < 0.98) {
                     centerCard.classList.add('visible');
@@ -183,9 +182,15 @@
                 });
                 cardTicking = true;
             }
-        });
+        }, { passive: true });
 
         updateCards();
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initScrollCards);
+    } else {
+        initScrollCards();
     }
 
     // ========== 通用视差滚动效果 ==========
