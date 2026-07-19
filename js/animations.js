@@ -157,14 +157,17 @@
 
             // 中间主图：75%-100%
             if (centerCard) {
-                if (progress >= 0.75) {
+                if (progress >= 0.75 && progress < 0.98) {
                     centerCard.classList.add('visible');
-                    var centerProgress = (progress - 0.75) / 0.25;
-                    if (centerProgress >= 0.6) {
+                    var centerProgress = (progress - 0.75) / 0.23;
+                    if (centerProgress >= 0.65) {
                         centerCard.classList.add('fullscreen');
                     } else {
                         centerCard.classList.remove('fullscreen');
                     }
+                } else if (progress >= 0.98) {
+                    centerCard.classList.remove('visible');
+                    centerCard.classList.remove('fullscreen');
                 } else {
                     centerCard.classList.remove('visible');
                     centerCard.classList.remove('fullscreen');
