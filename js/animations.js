@@ -156,10 +156,10 @@
             });
 
             if (centerCard) {
-                if (progress >= 0.75 && progress < 0.98) {
+                if (progress >= 0.8 && progress < 0.98) {
                     centerCard.classList.add('visible');
-                    var centerProgress = (progress - 0.75) / 0.23;
-                    if (centerProgress >= 0.65) {
+                    var centerProgress = (progress - 0.8) / 0.18;
+                    if (centerProgress >= 0.833) {
                         centerCard.classList.add('fullscreen');
                     } else {
                         centerCard.classList.remove('fullscreen');

@@ -294,8 +294,8 @@ body {
     .sc-card[data-corner="tr"][data-idx="1"] { top: 14%; right: 14%; transform: translate(120%, -120%); left: auto; }
     .sc-card[data-corner="br"][data-idx="0"] { bottom: 0; right: 3%;  transform: translate(120%, -120%); top: auto; left: auto; }
     .sc-card[data-corner="br"][data-idx="1"] { top: 74%; right: 14%; transform: translate(120%, -120%); left: auto; }
-    .sc-card[data-corner="bl"][data-idx="0"] { top: 74%; left: 14%; transform: translate(-120%, 120%); }
-    .sc-card[data-corner="bl"][data-idx="1"] { top: 84%; left: 3%;  transform: translate(-120%, 120%); }
+    .sc-card[data-corner="bl"][data-idx="0"] { top: 74%; left: 14%; z-index: 2; transform: translate(-120%, 120%); }
+    .sc-card[data-corner="bl"][data-idx="1"] { top: 84%; left: 3%;  z-index: 1; transform: translate(-120%, 120%); }
 
     .sc-card[data-corner="tl"].visible { transform: translate(0, 0); }
     .sc-card[data-corner="tr"].visible { transform: translate(0, 0); }
@@ -316,9 +316,9 @@ body {
     .sc-card[data-corner="tr"][data-idx="0"] { top: 2%;  right: 2%;  transform: translate(120%, -120%); left: auto; }
     .sc-card[data-corner="tr"][data-idx="1"] { top: 12%; right: 12%; transform: translate(120%, -120%); left: auto; }
     .sc-card[data-corner="br"][data-idx="0"] { bottom: 0; right: 2%;  transform: translate(120%, -120%); top: auto; left: auto; }
-    .sc-card[data-corner="br"][data-idx="1"] { top: 76%; right: 12%; transform: translate(120%, -120%); left: auto; }
-    .sc-card[data-corner="bl"][data-idx="0"] { top: 76%; left: 12%; transform: translate(-120%, 120%); }
-    .sc-card[data-corner="bl"][data-idx="1"] { top: 86%; left: 2%;  transform: translate(-120%, 120%); }
+    .sc-card[data-corner="br"][data-idx="1"] { top: 74%; right: 12%; transform: translate(120%, -120%); left: auto; }
+    .sc-card[data-corner="bl"][data-idx="0"] { top: 74%; left: 12%; z-index: 2; transform: translate(-120%, 120%); }
+    .sc-card[data-corner="bl"][data-idx="1"] { top: 83%; left: 2%;  z-index: 1; transform: translate(-120%, 120%); }
 
     .sc-card[data-corner="tl"].visible { transform: translate(0, 0); }
     .sc-card[data-corner="tr"].visible { transform: translate(0, 0); }
