@@ -90,12 +90,18 @@
             </button>
             <div class="collapse navbar-collapse" id="navMenu">
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="index.html">首页</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="Products.html">产品展示</a></li>
-                    <li class="nav-item"><a class="nav-link" href="features.html">产品特征</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">关于我们</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">联系我们</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html" data-i18n="navHome">首页</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="Products.html" data-i18n="navProducts">产品展示</a></li>
+                    <li class="nav-item"><a class="nav-link" href="features.html" data-i18n="navFeatures">产品特征</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html" data-i18n="navAbout">关于我们</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html" data-i18n="navContact">联系我们</a></li>
                 </ul>
+            </div>
+            <div class="lang-switch">
+                <select id="langSelect">
+                    <option value="zh">🇨🇳 中文</option>
+                    <option value="en">🇺🇸 English</option>
+                </select>
             </div>
         </div>
     </nav>
@@ -105,157 +111,158 @@
         <div class="container">
             <div id="detailContent" class="not-found">
                 <div class="spinner-border text-primary" role="status">
-                    <span class="visually-hidden">加载中...</span>
+                    <span class="visually-hidden" data-i18n="prodDetailLoading">加载中...</span>
                 </div>
             </div>
         </div>
     </section>
 
     <script>
-    (function() {
-        var params = new URLSearchParams(window.location.search);
-        var productId = params.get('id');
+    var _pdParams = new URLSearchParams(window.location.search);
+    var _pdId = _pdParams.get('id');
+    var _pdContainer = document.getElementById('detailContent');
 
-        var products = {
-            '001': {
-                name: '逐光鹿',
-                image: 'img/products-1.jpg',
-                category: '生活摆件',
-                price: '¥19',
-                oldPrice: '¥27',
-                description: '逐光鹿，献给热爱生活、勇攀高峰的你。纯手工雕刻，黑胡桃木精制。',
-                material: '黑胡桃木',
-                craft: '纯手工雕刻',
-                size: '约 15cm × 8cm × 20cm'
-            },
-            '002': {
-                name: '纸巾立挂',
-                image: 'img/product-2.jpg',
-                category: '家具系列',
-                price: '¥25',
-                oldPrice: '¥36',
-                description: '木艺纸巾架，让生活充满治愈小确辛。',
-                material: '榉木',
-                craft: '手工打磨',
-                size: '约 18cm × 12cm × 14cm'
-            },
-            '003': {
-                name: '精雕花鸟梳',
-                image: 'img/product-3.jpg',
-                category: '生活用品',
-                price: '¥68',
-                oldPrice: null,
-                description: '用生活的场景雕刻，带您领略木艺古典之美。',
-                material: '黄杨木',
-                craft: '精雕细刻',
-                size: '约 12cm × 5cm'
-            },
-            '004': {
-                name: '原木装饰镜',
-                image: 'img/product-4.jpg',
-                category: '家具系列',
-                price: '¥58',
-                oldPrice: '¥79',
-                description: '匠心原木雕，映出生活自然之美。',
-                material: '橡木',
-                craft: '手工雕刻',
-                size: '约 30cm × 40cm'
-            },
-            '005': {
-                name: '羊角木梳',
-                image: 'img/product-5.jpg',
-                category: '生活用品',
-                price: '¥99',
-                oldPrice: '¥129',
-                description: '羊角木梳，用打磨促使透光的羊角，透亮你的美。',
-                material: '天然羊角 + 黑金檀木',
-                craft: '手工打磨抛光',
-                size: '约 18cm × 5cm'
-            },
-            '006': {
-                name: '木制餐碗',
-                image: 'img/product-6.jpg',
-                category: '厨房用品',
-                price: '¥35',
-                oldPrice: '¥46',
-                description: '质朴木器，三餐陪伴，一日三餐烟火温暖。',
-                material: '枫木',
-                craft: '车旋工艺',
-                size: '约 15cm × 7cm'
-            },
-            '007': {
-                name: '萌趣木雕',
-                image: 'img/product-7.jpg',
-                category: '生活摆件',
-                price: '¥89',
-                oldPrice: null,
-                description: '萌趣企鹅立桌角治愈时光满心欢喜。',
-                material: '榉木',
-                craft: '手工雕刻',
-                size: '约 8cm × 8cm × 12cm'
-            },
-            '008': {
-                name: '足球木雕',
-                image: 'img/product-8.jpg',
-                category: '生活摆件',
-                price: '¥79',
-                oldPrice: '¥99',
-                description: '足球造型木雕摆件，献给热爱运动的你。',
-                material: '黑胡桃木',
-                craft: '手工雕刻',
-                size: '约 10cm × 10cm × 10cm'
-            },
-            '009': {
-                name: '红木茶铲',
-                image: 'img/product-9.jpg',
-                category: '茶道器具',
-                price: '¥45',
-                oldPrice: '¥62',
-                description: '精选红木手工打磨，茶席间的优雅器物。',
-                material: '红木',
-                craft: '手工打磨',
-                size: '约 15cm × 4cm'
-            },
-            '010': {
-                name: '竹节笔筒',
-                image: 'img/product-10.jpg',
-                category: '文房雅器',
-                price: '¥76',
-                oldPrice: null,
-                description: '以竹为形，木为载体，书案之上的一抹清雅。',
-                material: '楠竹',
-                craft: '手工雕刻',
-                size: '约 10cm × 10cm × 12cm'
-            },
-            '011': {
-                name: '实木花架',
-                image: 'img/product-11.jpg',
-                category: '家具系列',
-                price: '¥128',
-                oldPrice: '¥168',
-                description: '简约实木花架，让绿植与木艺相映成趣。',
-                material: '松木',
-                craft: '榫卯结构',
-                size: '约 30cm × 30cm × 60cm'
-            },
-            '012': {
-                name: '猫头鹰木雕',
-                image: 'img/product-12.jpg',
-                category: '生活摆件',
-                price: '¥96',
-                oldPrice: null,
-                description: '憨态可掬的猫头鹰，守护你的书桌时光。',
-                material: '胡桃木',
-                craft: '手工雕刻',
-                size: '约 10cm × 8cm × 15cm'
-            }
-        };
+    var _pdProducts = {
+        '001': {
+            name: { zh: '逐光鹿', en: 'Lumina Fawn' },
+            image: 'img/products-1.jpg',
+            category: { zh: '生活摆件', en: 'Home Decor' },
+            price: '¥19',
+            oldPrice: '¥27',
+            description: { zh: '逐光鹿，献给热爱生活、勇攀高峰的你。纯手工雕刻，黑胡桃木精制。', en: 'Lumina Fawn, dedicated to those who love life and aspire to conquer new heights. Hand-carved from black walnut.' },
+            material: { zh: '黑胡桃木', en: 'Black Walnut' },
+            craft: { zh: '纯手工雕刻', en: 'Hand Carved' },
+            size: { zh: '约 15cm × 8cm × 20cm', en: 'Approx. 15cm × 8cm × 20cm' }
+        },
+        '002': {
+            name: { zh: '纸巾立挂', en: 'Tissue Holder' },
+            image: 'img/product-2.jpg',
+            category: { zh: '家具系列', en: 'Furniture Series' },
+            price: '¥25',
+            oldPrice: '¥36',
+            description: { zh: '木艺纸巾架，让生活充满治愈小确辛。', en: 'Wooden tissue holder, bringing healing moments to everyday life.' },
+            material: { zh: '榉木', en: 'Beech Wood' },
+            craft: { zh: '手工打磨', en: 'Hand Polished' },
+            size: { zh: '约 18cm × 12cm × 14cm', en: 'Approx. 18cm × 12cm × 14cm' }
+        },
+        '003': {
+            name: { zh: '精雕花鸟梳', en: 'Carved Floral Comb' },
+            image: 'img/product-3.jpg',
+            category: { zh: '生活用品', en: 'Daily Essentials' },
+            price: '¥68',
+            oldPrice: null,
+            description: { zh: '用生活的场景雕刻，带您领略木艺古典之美。', en: 'Carved with scenes of life, bringing you the classical beauty of woodcraft.' },
+            material: { zh: '黄杨木', en: 'Boxwood' },
+            craft: { zh: '精雕细刻', en: 'Exquisite Carving' },
+            size: { zh: '约 12cm × 5cm', en: 'Approx. 12cm × 5cm' }
+        },
+        '004': {
+            name: { zh: '原木装饰镜', en: 'Natural Wood Mirror' },
+            image: 'img/product-4.jpg',
+            category: { zh: '家具系列', en: 'Furniture Series' },
+            price: '¥58',
+            oldPrice: '¥79',
+            description: { zh: '匠心原木雕，映出生活自然之美。', en: 'Artisan wood carving, reflecting the natural beauty of life.' },
+            material: { zh: '橡木', en: 'Oak Wood' },
+            craft: { zh: '手工雕刻', en: 'Hand Carved' },
+            size: { zh: '约 30cm × 40cm', en: 'Approx. 30cm × 40cm' }
+        },
+        '005': {
+            name: { zh: '羊角木梳', en: 'Horn Wood Comb' },
+            image: 'img/product-5.jpg',
+            category: { zh: '生活用品', en: 'Daily Essentials' },
+            price: '¥99',
+            oldPrice: '¥129',
+            description: { zh: '羊角木梳，用打磨促使透光的羊角，透亮你的美。', en: 'Horn and wood comb, polished to a translucent glow, illuminating your beauty.' },
+            material: { zh: '天然羊角 + 黑金檀木', en: 'Natural Horn + Black Sandalwood' },
+            craft: { zh: '手工打磨抛光', en: 'Hand Polished' },
+            size: { zh: '约 18cm × 5cm', en: 'Approx. 18cm × 5cm' }
+        },
+        '006': {
+            name: { zh: '木制餐碗', en: 'Wooden Bowl' },
+            image: 'img/product-6.jpg',
+            category: { zh: '厨房用品', en: 'Kitchenware' },
+            price: '¥35',
+            oldPrice: '¥46',
+            description: { zh: '质朴木器，三餐陪伴，一日三餐烟火温暖。', en: 'Simple wooden ware, companion to every meal, warm and homely.' },
+            material: { zh: '枫木', en: 'Maple Wood' },
+            craft: { zh: '车旋工艺', en: 'Wood Turning' },
+            size: { zh: '约 15cm × 7cm', en: 'Approx. 15cm × 7cm' }
+        },
+        '007': {
+            name: { zh: '萌趣木雕', en: 'Cute Penguin Carving' },
+            image: 'img/product-7.jpg',
+            category: { zh: '生活摆件', en: 'Home Decor' },
+            price: '¥89',
+            oldPrice: null,
+            description: { zh: '萌趣企鹅立桌角治愈时光满心欢喜。', en: 'Adorable penguin desk companion, healing your moments with joy.' },
+            material: { zh: '榉木', en: 'Beech Wood' },
+            craft: { zh: '手工雕刻', en: 'Hand Carved' },
+            size: { zh: '约 8cm × 8cm × 12cm', en: 'Approx. 8cm × 8cm × 12cm' }
+        },
+        '008': {
+            name: { zh: '足球木雕', en: 'Football Wood Carving' },
+            image: 'img/product-8.jpg',
+            category: { zh: '生活摆件', en: 'Home Decor' },
+            price: '¥79',
+            oldPrice: '¥99',
+            description: { zh: '足球造型木雕摆件，献给热爱运动的你。', en: 'Football-shaped wood carving, dedicated to sports enthusiasts.' },
+            material: { zh: '黑胡桃木', en: 'Black Walnut' },
+            craft: { zh: '手工雕刻', en: 'Hand Carved' },
+            size: { zh: '约 10cm × 10cm × 10cm', en: 'Approx. 10cm × 10cm × 10cm' }
+        },
+        '009': {
+            name: { zh: '红木茶铲', en: 'Rosewood Tea Scoop' },
+            image: 'img/product-9.jpg',
+            category: { zh: '茶道器具', en: 'Tea Ware' },
+            price: '¥45',
+            oldPrice: '¥62',
+            description: { zh: '精选红木手工打磨，茶席间的优雅器物。', en: 'Selected rosewood, hand-polished, an elegant accessory for your tea ceremony.' },
+            material: { zh: '红木', en: 'Rosewood' },
+            craft: { zh: '手工打磨', en: 'Hand Polished' },
+            size: { zh: '约 15cm × 4cm', en: 'Approx. 15cm × 4cm' }
+        },
+        '010': {
+            name: { zh: '竹节笔筒', en: 'Bamboo Joint Pen Holder' },
+            image: 'img/product-10.jpg',
+            category: { zh: '文房雅器', en: 'Stationery' },
+            price: '¥76',
+            oldPrice: null,
+            description: { zh: '以竹为形，木为载体，书案之上的一抹清雅。', en: 'Inspired by bamboo, crafted in wood, a touch of elegance for your desk.' },
+            material: { zh: '楠竹', en: 'Bamboo' },
+            craft: { zh: '手工雕刻', en: 'Hand Carved' },
+            size: { zh: '约 10cm × 10cm × 12cm', en: 'Approx. 10cm × 10cm × 12cm' }
+        },
+        '011': {
+            name: { zh: '实木花架', en: 'Solid Wood Flower Stand' },
+            image: 'img/product-11.jpg',
+            category: { zh: '家具系列', en: 'Furniture Series' },
+            price: '¥128',
+            oldPrice: '¥168',
+            description: { zh: '简约实木花架，让绿植与木艺相映成趣。', en: 'Minimalist solid wood flower stand, where greenery meets woodcraft.' },
+            material: { zh: '松木', en: 'Pine Wood' },
+            craft: { zh: '榫卯结构', en: 'Mortise & Tenon' },
+            size: { zh: '约 30cm × 30cm × 60cm', en: 'Approx. 30cm × 30cm × 60cm' }
+        },
+        '012': {
+            name: { zh: '猫头鹰木雕', en: 'Owl Wood Carving' },
+            image: 'img/product-12.jpg',
+            category: { zh: '生活摆件', en: 'Home Decor' },
+            price: '¥96',
+            oldPrice: null,
+            description: { zh: '憨态可掬的猫头鹰，守护你的书桌时光。', en: 'A charming owl carving, guarding your desk moments.' },
+            material: { zh: '胡桃木', en: 'Walnut Wood' },
+            craft: { zh: '手工雕刻', en: 'Hand Carved' },
+            size: { zh: '约 10cm × 8cm × 15cm', en: 'Approx. 10cm × 8cm × 15cm' }
+        }
+    };
 
-        var product = products[productId];
-        var container = document.getElementById('detailContent');
+    function _pdRender(lang) {
+        lang = lang || 'zh';
+        var product = _pdProducts[_pdId];
 
         if (!product) {
-            container.innerHTML = '<div class="not-found"><h2><i class="bi bi-emoji-frown"></i></h2><p style="font-size:1.2rem;color:#999;">未找到该产品</p><a href="Products.html" class="btn btn-outline-primary rounded-pill mt-3">返回产品展示</a></div>';
+            _pdContainer.innerHTML = '<div class="not-found"><h2><i class="bi bi-emoji-frown"></i></h2><p style="font-size:1.2rem;color:#999;">' + (lang === 'en' ? 'Product Not Found' : '未找到该产品') + '</p><a href="Products.html" class="btn btn-outline-primary rounded-pill mt-3">' + (lang === 'en' ? 'Back to Products' : '返回产品展示') + '</a></div>';
             return;
         }
 
@@ -263,23 +270,42 @@
 
         var html = '<div class="row g-5 align-items-start">';
         html += '<div class="col-lg-6">';
-        html += '<img src="' + product.image + '" alt="' + product.name + '" class="detail-img">';
+        html += '<img src="' + product.image + '" alt="' + product.name[lang] + '" class="detail-img">';
         html += '</div>';
         html += '<div class="col-lg-6">';
-        html += '<span class="detail-category">' + product.category + '</span>';
-        html += '<h1 class="detail-title">' + product.name + '</h1>';
+        html += '<span class="detail-category">' + product.category[lang] + '</span>';
+        html += '<h1 class="detail-title">' + product.name[lang] + '</h1>';
         html += '<div class="detail-price">' + product.price + oldPriceHtml + '</div>';
-        html += '<p class="text-muted" style="font-size:1.05rem;">' + product.description + '</p>';
+        html += '<p class="text-muted" style="font-size:1.05rem;">' + product.description[lang] + '</p>';
         html += '<div class="detail-info">';
-        html += '<h5>材质</h5><p>' + product.material + '</p>';
-        html += '<h5>工艺</h5><p>' + product.craft + '</p>';
-        html += '<h5>规格尺寸</h5><p>' + product.size + '</p>';
+        html += '<h5>' + (lang === 'en' ? 'Material' : '材质') + '</h5><p>' + product.material[lang] + '</p>';
+        html += '<h5>' + (lang === 'en' ? 'Craft' : '工艺') + '</h5><p>' + product.craft[lang] + '</p>';
+        html += '<h5>' + (lang === 'en' ? 'Dimensions' : '规格尺寸') + '</h5><p>' + product.size[lang] + '</p>';
         html += '</div>';
-        html += '<a href="contact.html" class="btn btn-primary contact-btn"><i class="bi bi-chat-dots me-2"></i>查看详情</a>';
-        html += '<a href="Products.html" class="btn btn-outline-secondary contact-btn ms-3"><i class="bi bi-arrow-left me-2"></i>返回产品</a>';
+        html += '<a href="contact.html" class="btn btn-primary contact-btn"><i class="bi bi-chat-dots me-2"></i>' + (lang === 'en' ? 'View Details' : '查看详情') + '</a>';
+        html += '<a href="Products.html" class="btn btn-outline-secondary contact-btn ms-3"><i class="bi bi-arrow-left me-2"></i>' + (lang === 'en' ? 'Back to Products' : '返回产品') + '</a>';
         html += '</div></div>';
 
-        container.innerHTML = html;
+        _pdContainer.innerHTML = html;
+
+        var selectEl = document.getElementById('langSelect');
+        if (selectEl) selectEl.value = lang;
+    }
+</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/i18n.js?v=2"></script>
+    <script src="js/main.js"></script>
+    <script>
+    (function() {
+        var savedLang = localStorage.getItem('lang') || 'zh';
+        _pdRender(savedLang);
+
+        var selectEl = document.getElementById('langSelect');
+        if (selectEl) {
+            selectEl.addEventListener('change', function() {
+                _pdRender(this.value);
+            });
+        }
     })();
     </script>
 </body>
