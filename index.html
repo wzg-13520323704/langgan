@@ -1,13 +1,17 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="light only">
+    <meta http-equiv="Cache-Control" content="max-age=31536000, immutable">
     <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
     <title>Lang Gan Wooden</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" media="print" onload="this.media='all';this.onload=null;">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"></noscript>
     <link rel="stylesheet" href="css/style.css?v=1">
 </head>
 <body>
@@ -42,7 +46,7 @@
     <!-- ==================== 轮播图 ==================== -->
         <!-- ==================== 轮播图 ==================== -->
     <div class="container">
-    <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="4000">
+    <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -50,21 +54,21 @@
         </div>
         <div class="carousel-inner">
            <div class="carousel-item active">
-                <img src="img/img-1-16.png" class="d-block w-100" alt="产品轮播图 1">
+                <img src="img/img-1-16.png" class="d-block w-100" alt="产品轮播图 1" fetchpriority="high" decoding="sync" width="1200" height="600">
                 <div class="carousel-caption">
                     <h5 class="highlight" data-i18n="carouselTitle1">匠心造物</h5>
                     <p data-i18n="carouselDesc1">臻选材料，精湛技艺</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="img/img-2-16.jpg" class="d-block w-100" alt="">
+                <img src="img/img-2-16.jpg" class="d-block w-100" alt="" loading="lazy" decoding="async" width="1200" height="600">
                 <div class="carousel-caption">
                     <h5 data-i18n="carouselTitle2">精湛工艺，绝对信赖</h5>
                     <p data-i18n="carouselDesc2">卓越驱动我们前行</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="img/logo.png" class="d-block w-100" alt="产品轮播图 3">
+                <img src="img/logo.png" class="d-block w-100" alt="产品轮播图 3" loading="lazy" decoding="async" width="1200" height="600">
                 <div class="carousel-caption">
                     <h5 data-i18n="carouselTitle3">只为造极，不负所托</h5>
                     <p data-i18n="carouselDesc3">我们坚信，伟大的艺术始于伟大的材料</p>
@@ -105,7 +109,7 @@
                 </div>
                 <div class="col-lg-6 hero-visual">
                     <div class="hero-product-img">
-                            <img src="img/img-3.jpg" alt="产品主图展示" class="zoom-img" style="max-width: 100%; height: auto;">
+                            <img src="img/img-3.jpg" alt="产品主图展示" class="zoom-img" style="max-width: 100%; height: auto;" fetchpriority="high" decoding="sync" width="420" height="420">
                         </div>
                     </div>
                 </div>
@@ -114,48 +118,48 @@
     </section>
 
     <!-- ==================== X形双斜线滚动卡片区 ==================== -->
-    <section class="scroll-cards-section" id="scrollCards">
+    <section class="scroll-cards-section" id="scrollCards" style="display:none">
         <div class="scroll-cards-sticky">
             <div class="scroll-cards-container">
                 <!-- 左上角 2张 -->
                 <div class="sc-card" data-corner="tl" data-idx="0">
-                    <img src="img/products-1.jpg" alt="逐光鹿">
+                    <img src="img/products-1.jpg" alt="逐光鹿" loading="lazy" decoding="async" width="260" height="180">
                     <div class="sc-card-label" data-i18n="producttitle1">逐光鹿</div>
                 </div>
                 <div class="sc-card" data-corner="tl" data-idx="1">
-                    <img src="img/product-2.jpg" alt="纸巾立挂">
+                    <img src="img/product-2.jpg" alt="纸巾立挂" loading="lazy" decoding="async" width="260" height="180">
                     <div class="sc-card-label" data-i18n="producttitle2">纸巾立挂</div>
                 </div>
                 <!-- 右上角 2张 -->
                 <div class="sc-card" data-corner="tr" data-idx="0">
-                    <img src="img/product-3.jpg" alt="精雕花鸟梳">
+                    <img src="img/product-3.jpg" alt="精雕花鸟梳" loading="lazy" decoding="async" width="260" height="180">
                     <div class="sc-card-label" data-i18n="producttitle3">精雕花鸟梳</div>
                 </div>
                 <div class="sc-card" data-corner="tr" data-idx="1">
-                    <img src="img/product-4.jpg" alt="原木装饰镜">
+                    <img src="img/product-4.jpg" alt="原木装饰镜" loading="lazy" decoding="async" width="260" height="180">
                     <div class="sc-card-label" data-i18n="producttitle4">原木装饰镜</div>
                 </div>
                 <!-- 右下角 2张 -->
                 <div class="sc-card" data-corner="br" data-idx="0">
-                    <img src="img/img-1-2.png" alt="精选木材">
+                    <img src="img/img-1-2.png" alt="精选木材" loading="lazy" decoding="async" width="260" height="180">
                     <div class="sc-card-label" data-i18n="scrollCardLabel5">精选木材</div>
                 </div>
                 <div class="sc-card" data-corner="br" data-idx="1">
-                    <img src="img/img-2-2.jpg" alt="传统工艺">
+                    <img src="img/img-2-2.jpg" alt="传统工艺" loading="lazy" decoding="async" width="260" height="180">
                     <div class="sc-card-label" data-i18n="scrollCardLabel6">传统工艺</div>
                 </div>
                 <!-- 左下角 2张 -->
                 <div class="sc-card" data-corner="bl" data-idx="0">
-                    <img src="img/img-3-2.jpg" alt="匠心雕刻">
+                    <img src="img/img-3-2.jpg" alt="匠心雕刻" loading="lazy" decoding="async" width="260" height="180">
                     <div class="sc-card-label" data-i18n="scrollCardLabel7">匠心雕刻</div>
                 </div>
                 <div class="sc-card" data-corner="bl" data-idx="1">
-                    <img src="img/img-3.jpg" alt="产品展示">
+                    <img src="img/img-3.jpg" alt="产品展示" loading="lazy" decoding="async" width="260" height="180">
                     <div class="sc-card-label" data-i18n="navProducts">产品展示</div>
                 </div>
                 <!-- 中间主图 -->
                 <div class="sc-card sc-card-center" data-corner="center">
-                    <img src="img/img-1-16.png" alt="琅玕工坊">
+                    <img src="img/img-1-16.png" alt="琅玕工坊" loading="lazy" decoding="async" width="240" height="180">
                     <div class="sc-card-label" data-i18n="brand">琅玕工坊</div>
                 </div>
             </div>
@@ -195,13 +199,13 @@
                 <p data-i18n="header3">每一款产品都经过精心打磨，只为给你带来最好的体验。</p>
                 <a href="Products.html" class="btn btn-outline-primary rounded-pill mt-2" data-i18n="btn">查看全部产品 <i class="bi bi-arrow-right"></i></a>
             </div>
-            <div class="row g-4">
+            <div class="row g-4" id="featuredProductGrid">
                 <!-- 产品 1 -->
                 <div class="col-lg-3 col-md-6 reveal-scale reveal-delay-1">
                     <div class="product-card">
                         <div class="product-img">
                             <span class="product-tag" data-i18n="producttag1">热卖</span>
-                            <img src="img/products-1.jpg" alt="Wooden pendant86">
+                            <img src="img/products-1.jpg" alt="Wooden pendant86" loading="lazy" decoding="async" width="400" height="300">
                         </div>
                         <div class="product-body">
                             <div class="product-category" data-i18n="productcategory1">生活摆件</div>
@@ -227,7 +231,7 @@
                     <div class="product-card">
                         <div class="product-img">
                             <span class="product-tag" data-i18n="producttag2">新品</span>
-                            <img src="img/product-2.jpg" alt="山水屏风">
+                            <img src="img/product-2.jpg" alt="山水屏风" loading="lazy" decoding="async" width="400" height="300">
                         </div>
                         <div class="product-body">
                             <div class="product-category" data-i18n="productcategory2">家具系列</div>
@@ -252,7 +256,7 @@
                 <div class="col-lg-3 col-md-6 reveal-scale reveal-delay-3">
                     <div class="product-card">
                         <div class="product-img">
-                            <img src="img/product-3.jpg" alt="生活用品">
+                            <img src="img/product-3.jpg" alt="生活用品" loading="lazy" decoding="async" width="400" height="300">
                         </div>
                         <div class="product-body">
                             <div class="product-category" data-i18n="productcategory3">生活用品</div>
@@ -278,7 +282,7 @@
                     <div class="product-card">
                         <div class="product-img">
                             <span class="product-tag" data-i18n="producttag3">限时</span>
-                            <img src="img/product-4.jpg" alt="家居壁挂">
+                            <img src="img/product-4.jpg" alt="家居壁挂" loading="lazy" decoding="async" width="400" height="300">
                         </div>
                         <div class="product-body">
                             <div class="product-category" data-i18n="productcategory4">家居壁挂</div>
@@ -303,6 +307,18 @@
         </div>
     </section>
 
+    <!-- ==================== 定制想法召唤区 ==================== -->
+    <section class="section">
+        <div class="container">
+            <div class="idea-contact-section reveal">
+                <div class="idea-contact-icon"><i class="bi bi-lightbulb"></i></div>
+                <h3 class="idea-contact-title" data-i18n="ideaContactTitle">您有定制想法吗？</h3>
+                <p class="idea-contact-desc" data-i18n="ideaContactDesc">如果您有更多新颖、创新的想法或定制需求，请联系我们的设计师，我们期待将您的愿景变为现实。</p>
+                <a href="contact.html" class="idea-contact-btn"><i class="bi bi-stars me-2"></i><span data-i18n="ideaContactBtn">实现想法</span></a>
+            </div>
+        </div>
+    </section>
+
     <!-- ==================== 产品特色区 ==================== -->
     <section class="section section-alt" id="features">
         <div class="container">
@@ -315,7 +331,7 @@
             <!-- 特色 1 -->
             <div class="feature-showcase reveal-left">
                 <div class="feature-img">
-                    <img src="img/img-1-2.png" alt="精选名贵木材" class="zoom-img" style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+                    <img src="img/img-1-2.png" alt="精选名贵木材" class="zoom-img" style="width:100%;height:100%;object-fit:cover;border-radius:12px;" loading="lazy" decoding="async" width="600" height="450">
                 </div>
                 <div class="feature-content">
                     <div class="feature-icon-badge" style="background: rgba(139, 90, 43, 0.1); color: #8b5a2b;">
@@ -335,7 +351,7 @@
             <!-- 特色 2 -->
             <div class="feature-showcase reverse reveal-right">
                 <div class="feature-img">
-                    <img src="img/img-2-2.jpg" alt="传统榫卯工艺" class="zoom-img" style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+                    <img src="img/img-2-2.jpg" alt="传统榫卯工艺" class="zoom-img" style="width:100%;height:100%;object-fit:cover;border-radius:12px;" loading="lazy" decoding="async" width="600" height="450">
                 </div>
                 <div class="feature-content">
                     <div class="feature-icon-badge" style="background: rgba(25, 135, 84, 0.1); color: #198754;">
@@ -355,7 +371,7 @@
             <!-- 特色 3 -->
             <div class="feature-showcase reveal-left">
                 <div class="feature-img">
-                    <img src="img/img-3-2.jpg" alt="匠心手工雕刻" class="zoom-img" style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+                    <img src="img/img-3-2.jpg" alt="匠心手工雕刻" class="zoom-img" style="width:100%;height:100%;object-fit:cover;border-radius:12px;" loading="lazy" decoding="async" width="600" height="450">
                 </div>
                 <div class="feature-content">
                     <div class="feature-icon-badge" style="background: rgba(255, 107, 53, 0.1); color: #ff6b35;">
@@ -369,6 +385,47 @@
                         <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="feature3Item3">个性化定制</span></li>
                         <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="feature3Item4">终身保养服务</span></li>
                     </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 材质展示区 ==================== -->
+    <section class="section material-showcase">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="badge-custom" data-i18n="materialTitle">甄选材质</span>
+                <h2 data-i18n="materialTitle">我们只选用最优质的木材</h2>
+                <p data-i18n="materialDesc">每一块木料都经过严格筛选与自然干燥，只为呈现最完美的纹理与质感。</p>
+            </div>
+            <div class="material-grid">
+                <div class="material-card reveal reveal-delay-1">
+                    <div class="material-card-icon" style="background:rgba(92,64,51,0.1);color:#5c4033;">
+                        <i class="bi bi-tree-fill"></i>
+                    </div>
+                    <h4 data-i18n="mat1Name">北美黑胡桃</h4>
+                    <p data-i18n="mat1Desc">深邃色泽，细腻纹理，稳定性极佳</p>
+                </div>
+                <div class="material-card reveal reveal-delay-2">
+                    <div class="material-card-icon" style="background:rgba(139,90,43,0.1);color:#8b5a2b;">
+                        <i class="bi bi-tree-fill"></i>
+                    </div>
+                    <h4 data-i18n="mat2Name">非洲紫光檀</h4>
+                    <p data-i18n="mat2Desc">质地坚硬，油润光泽，手感温润如玉</p>
+                </div>
+                <div class="material-card reveal reveal-delay-3">
+                    <div class="material-card-icon" style="background:rgba(122,158,90,0.1);color:#6a9e3a;">
+                        <i class="bi bi-tree-fill"></i>
+                    </div>
+                    <h4 data-i18n="mat3Name">天然绿檀</h4>
+                    <p data-i18n="mat3Desc">自带淡雅清香，色泽随时间愈显温润</p>
+                </div>
+                <div class="material-card reveal reveal-delay-4">
+                    <div class="material-card-icon" style="background:rgba(205,133,63,0.1);color:#cd853f;">
+                        <i class="bi bi-tree-fill"></i>
+                    </div>
+                    <h4 data-i18n="mat4Name">天然桃木</h4>
+                    <p data-i18n="mat4Desc">纹理细腻均匀，质地温和，雕刻首选</p>
                 </div>
             </div>
         </div>
@@ -390,7 +447,7 @@
                     产品从日常生活梳子，到家居装饰，生活质量提高的装饰品、产品远销30多个国家和地区的木作品牌，我们始终坚持"匠心为本、品质至上"的理念，每一件作品都承载着我们对木作艺术的极致追求。
                 </p>
                 <div class="team-img">
-                    <img src="img/img-3-16.jpg" alt="琅玕工坊团队" style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+                    <img src="img/img-3-16.jpg" alt="琅玕工坊团队" style="width:100%;height:100%;object-fit:cover;border-radius:12px;" loading="lazy" decoding="async" width="800" height="450">
                 </div>
                 <p data-i18n="aboutP3">
                     未来，我们将继续深耕木作工艺，融合现代设计美学，为全球用户带来更多兼具实用与艺术价值的木作精品，让中国传统木作文化走向世界。
@@ -434,7 +491,7 @@
                         <div class="contact-info-icon"><i class="bi bi-clock"></i></div>
                         <div>
                             <h5 data-i18n="contacts4">工作时间</h5>
-                            <p data-i18n="contactHours">周一至周日 9:00 - 18:00</p>
+                            <p data-i18n="contactHours">周一至周日 24H</p>
                         </div>
                     </div>
                 </div>
@@ -471,6 +528,45 @@
                             </div>
                         </div>
                     </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 匠人故事区 ==================== -->
+    <section class="section craftsman-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="badge-custom" data-i18n="craftsmanTitle">匠人精神</span>
+                <h2 data-i18n="craftsmanTitle">每一件作品，都是一段匠心故事</h2>
+                <p data-i18n="craftsmanDesc">数百道工序，数百小时手工打磨，只为让每一件作品承载温度与灵魂。</p>
+            </div>
+            <div class="craftsman-story">
+                <div class="craftsman-media reveal-left">
+                    <div class="craftsman-video-placeholder">
+                        <div class="play-icon-circle">
+                            <i class="bi bi-play-fill" style="font-size:2rem;margin-left:4px;"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="craftsman-text reveal-right">
+                    <h3 data-i18n="craftsmanSubtitle">传承千年木作技艺</h3>
+                    <p data-i18n="craftsmanP1">我们的匠人团队拥有超过15年的木作经验，每一件产品从选材、切割、雕刻、打磨到上蜡，都遵循古法工艺，结合现代审美设计。</p>
+                    <p data-i18n="craftsmanP2">榫卯结构、手工雕刻、天然蜂蜡养护——这些看似"过时"的传统技艺，恰恰是我们产品的灵魂所在。我们相信，只有慢工出细活，才能打造出经得起时间考验的木艺珍品。</p>
+                    <div class="craftsman-stats">
+                        <div class="craftsman-stat">
+                            <div class="num">15+</div>
+                            <div class="label" data-i18n="craftsmanStat1">年匠心经验</div>
+                        </div>
+                        <div class="craftsman-stat">
+                            <div class="num">200+</div>
+                            <div class="label" data-i18n="craftsmanStat2">道手工工序</div>
+                        </div>
+                        <div class="craftsman-stat">
+                            <div class="num">100%</div>
+                            <div class="label" data-i18n="craftsmanStat3">纯手工打磨</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -569,10 +665,12 @@
     </a>
 
     <!-- ==================== Bootstrap JS ==================== -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/i18n.js?v=2"></script>
-    <script src="js/contact.js?v=1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="js/i18n.js?v=3" defer></script>
+    <script src="js/products-data.js?v=1" defer></script>
+    <script src="js/products-render.js?v=1" defer></script>
+    <script src="js/contact.js?v=1" defer></script>
     <script src="js/animations.js?v=1" data-cfasync="false"></script>
-    <script src="js/main.js?v=1"></script>
+    <script src="js/main.js?v=2" defer></script>
 </body>
 </html>

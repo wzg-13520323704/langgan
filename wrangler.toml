@@ -8,4 +8,5 @@ database_id = "152ff275-eb99-4872-b6a5-d2bf5aa540da"
 
 [vars]
 NOTIFY_EMAIL = "2128836803@qq.com"
-PAYPAL_MODE = "sandbox"
+PAYPAL_MODE = "live"
+PAYPAL_CLIENT_ID = "BAA-Jd-HDqmNBf0u2m3EXBmjQcvaVVG5hUdLZvJAnoEIqKqB7qTIBqXKK5YDTtP-evYSXUXbFg3oR8UbrQ"

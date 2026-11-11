@@ -2,44 +2,51 @@
     var observerOptions = { threshold: 0.12, rootMargin: '0px 0px -30px 0px' };
 
     // ========== 滚动触发入场动画（支持所有 reveal 变体） ==========
-    var revealSelectors = ['.reveal', '.reveal-scale', '.reveal-left', '.reveal-right'];
-    var allRevealEls = [];
+    function initRevealAnimations() {
+        var revealSelectors = ['.reveal', '.reveal-scale', '.reveal-left', '.reveal-right'];
+        var allRevealEls = [];
 
-    revealSelectors.forEach(function (sel) {
-        var els = document.querySelectorAll(sel);
-        els.forEach(function (el) { allRevealEls.push(el); });
-    });
-
-    if (allRevealEls.length && 'IntersectionObserver' in window) {
-        var revealObserver = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('revealed');
-                    revealObserver.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        allRevealEls.forEach(function (el) {
-            revealObserver.observe(el);
+        revealSelectors.forEach(function (sel) {
+            var els = document.querySelectorAll(sel);
+            els.forEach(function (el) { allRevealEls.push(el); });
         });
 
-        // 页面加载后立即检查：已在视口内的元素直接显示
-        setTimeout(function () {
+        if (allRevealEls.length && 'IntersectionObserver' in window) {
+            var revealObserver = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
             allRevealEls.forEach(function (el) {
-                var rect = el.getBoundingClientRect();
-                if (rect.top < window.innerHeight && rect.bottom > 0) {
-                    el.classList.add('revealed');
-                    revealObserver.unobserve(el);
-                }
+                revealObserver.observe(el);
             });
-        }, 100);
-    } else {
-        // Fallback：直接全部显示
-        allRevealEls.forEach(function (el) {
-            el.classList.add('revealed');
-        });
+
+            // 页面加载后立即检查：已在视口内的元素直接显示
+            setTimeout(function () {
+                allRevealEls.forEach(function (el) {
+                    var rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom > 0) {
+                        el.classList.add('revealed');
+                        revealObserver.unobserve(el);
+                    }
+                });
+            }, 100);
+        } else {
+            // Fallback：直接全部显示
+            allRevealEls.forEach(function (el) {
+                el.classList.add('revealed');
+            });
+        }
     }
+
+    // 初次初始化
+    initRevealAnimations();
+    // 暴露到全局，供 products-render.js 在重新渲染后调用
+    window.initRevealAnimations = initRevealAnimations;
 
     // ========== 数字计数器动画 ==========
     var statNumbers = document.querySelectorAll('.stat-number[data-count]');

@@ -1,13 +1,16 @@
- <!DOCTYPE html>
+﻿ <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
     <title>产品展示 - Lang Gan Wooden</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" media="print" onload="this.media='all';this.onload=null;">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"></noscript>
+    <link rel="stylesheet" href="css/style.css?v=1">
 </head>
 <body>
 
@@ -48,321 +51,49 @@
         </div>
     </section>
 
-    <!-- ==================== 产品展示区 ==================== -->
-    <section class="section" id="products">
+    <!-- ==================== 定制想法召唤区 ==================== -->
+    <section class="section pt-0">
         <div class="container">
-            <div class="row g-4">
-                <!-- 产品 1 -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="product-card">
-                        <div class="product-img">
-                            <span class="product-tag" data-i18n="producttag1">热卖</span>
-                            <img src="img/products-1.jpg" alt="逐光鹿">
-                        </div>
-                        <div class="product-body">
-                            <div class="product-category" data-i18n="productcategory1">生活摆件</div>
-                            <div class="product-title" data-i18n="prod1_title">逐光鹿</div>
-                            <p class="product-desc" data-i18n="prod1_desc">逐光鹿，献给热爱生活、勇攀高峰的你。纯手工雕刻，黑胡桃木精制。</p>
-                            <div class="product-price">¥19 <span class="old-price">¥27</span></div>
-                            <div class="product-footer">
-                                <div class="product-rating">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-half"></i>
-                                    <span>(4.8)</span>
-                                </div>
-                                <a href="product-detail.html?id=001" class="btn btn-sm btn-outline-primary rounded-pill" data-i18n="viewDetail">查看详情</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- 产品 2 -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="product-card">
-                        <div class="product-img">
-                            <span class="product-tag" data-i18n="producttag2">新品</span>
-                            <img src="img/product-2.jpg" alt="山水屏风">
-                        </div>
-                        <div class="product-body">
-                            <div class="product-category" data-i18n="prodCatFurniture">家具系列</div>
-                            <div class="product-title"  data-i18n="producttitle2">纸巾立挂</div>
-                            <p class="product-desc" data-i18n="productdesc2">木艺纸巾架，让生活充满治愈小确辛。</p>
-                            <div class="product-price">¥25 <span class="old-price">¥36</span></div>
-                            <div class="product-footer">
-                                <div class="product-rating">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <span>(5.0)</span>
-                                </div>
-                                <a href="product-detail.html?id=002" class="btn btn-sm btn-outline-primary rounded-pill" data-i18n="viewDetail">查看详情</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- 产品 3 -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="product-card">
-                        <div class="product-img">
-                            <img src="img/product-3.jpg" alt="生活用品">
-                        </div>
-                        <div class="product-body">
-                            <div class="product-category" data-i18n="productcategory3">生活用品</div>
-                            <div class="product-title"  data-i18n="producttitle3">精雕花鸟梳</div>
-                            <p class="product-desc" data-i18n="productdesc3">用生活的场景雕刻，带您领略木艺古典之美。</p>
-                            <div class="product-price">¥68</div>
-                            <div class="product-footer">
-                                <div class="product-rating">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star"></i>
-                                    <span>(4.5)</span>
-                                </div>
-                                <a href="product-detail.html?id=003" class="btn btn-sm btn-outline-primary rounded-pill" data-i18n="viewDetail">查看详情</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- 产品 4 -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="product-card">
-                        <div class="product-img">
-                            <span class="product-tag" data-i18n="producttag3">限时</span>
-                            <img src="img/product-4.jpg" alt="家居壁挂">
-                        </div>
-                        <div class="product-body">
-                            <div class="product-category" data-i18n="productcategory4">家具系列</div>
-                            <div class="product-title"  data-i18n="producttitle4">原木装饰镜</div>
-                            <p class="product-desc" data-i18n="productdesc4">匠心原木雕，映出生活自然之美。</p>
-                            <div class="product-price">¥58 <span class="old-price">¥79</span></div>
-                            <div class="product-footer">
-                                <div class="product-rating">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <span>(4.9)</span>
-                                </div>
-                                <a href="product-detail.html?id=004" class="btn btn-sm btn-outline-primary rounded-pill" data-i18n="viewDetail">查看详情</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="idea-contact-section reveal">
+                <div class="idea-contact-icon"><i class="bi bi-lightbulb"></i></div>
+                <h3 class="idea-contact-title" data-i18n="ideaContactTitle">您有定制想法吗？</h3>
+                <p class="idea-contact-desc" data-i18n="ideaContactDesc">如果您有更多新颖、创新的想法或定制需求，请联系我们的设计师，我们期待将您的愿景变为现实。</p>
+                <a href="contact.html" class="idea-contact-btn"><i class="bi bi-stars me-2"></i><span data-i18n="ideaContactBtn">实现想法</span></a>
             </div>
+        </div>
+    </section>
 
-            <!-- 第二行产品 -->
-            <div class="row g-4 mt-1">
-                <!-- 产品 5 -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="product-card">
-                        <div class="product-img">
-                            <img src="img/product-5.jpg" alt="生活用品">
-                        </div>
-                        <div class="product-body">
-                            <div class="product-category" data-i18n="productcategory5">生活用品</div>
-                            <div class="product-title"  data-i18n="producttitle5">羊角木梳</div>
-                            <p class="product-desc" data-i18n="productdesc5">羊角木梳，用打磨促使透光的羊角，透亮你的美。</p>
-                            <div class="product-price">¥99</div>
-                            <div class="product-footer">
-                                <div class="product-rating">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-half"></i>
-                                    <span>(4.7)</span>
-                                </div>
-                                <a href="product-detail.html?id=005" class="btn btn-sm btn-outline-primary rounded-pill" data-i18n="viewDetail">查看详情</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- 产品 6 -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="product-card">
-                        <div class="product-img">
-                            <span class="product-tag" data-i18n="producttag1">热卖</span>
-                            <img src="img/product-6.jpg" alt="厨房用品">
-                        </div>
-                        <div class="product-body">
-                            <div class="product-category" data-i18n="productcategory6">厨房用品</div>
-                            <div class="product-title"  data-i18n="producttitle6">木制餐碗</div>
-                            <p class="product-desc" data-i18n="productdesc6">质朴木器，三餐陪伴，一日三餐烟火温暖。</p>
-                            <div class="product-price">¥35 <span class="old-price">¥46</span></div>
-                            <div class="product-footer">
-                                <div class="product-rating">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star"></i>
-                                    <span>(4.4)</span>
-                                </div>
-                                <a href="product-detail.html?id=006" class="btn btn-sm btn-outline-primary rounded-pill" data-i18n="viewDetail">查看详情</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- 产品 7 -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="product-card">
-                        <div class="product-img">
-                            <img src="img/product-7.jpg" alt="木雕摆件">
-                        </div>
-                        <div class="product-body">
-                            <div class="product-category" data-i18n="productcategory1">生活摆件</div>
-                            <div class="product-title"  data-i18n="producttitle7">萌趣木雕</div>
-                            <p class="product-desc" data-i18n="productdesc7">萌趣企鹅立桌角治愈时光满心欢喜。</p>
-                            <div class="product-price">¥89</div>
-                            <div class="product-footer">
-                                <div class="product-rating">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star"></i>
-                                    <span>(4.3)</span>
-                                </div>
-                                <a href="product-detail.html?id=007" class="btn btn-sm btn-outline-primary rounded-pill" data-i18n="viewDetail">查看详情</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- 产品 9 -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="product-card">
-                        <div class="product-img">
-                            <span class="product-tag" data-i18n="producttag3">限时</span>
-                            <img src="img/product-9.jpg" alt="茶道器具">
-                        </div>
-                        <div class="product-body">
-                            <div class="product-category" data-i18n="productcategory9">茶道器具</div>
-                            <div class="product-title"  data-i18n="producttitle9">红木茶铲</div>
-                            <p class="product-desc" data-i18n="productdesc9">精选红木手工打磨，茶席间的优雅器物。</p>
-                            <div class="product-price">¥45 <span class="old-price">¥62</span></div>
-                            <div class="product-footer">
-                                <div class="product-rating">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <span>(5.0)</span>
-                                </div>
-                                <a href="product-detail.html?id=009" class="btn btn-sm btn-outline-primary rounded-pill" data-i18n="viewDetail">查看详情</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- 产品 10 -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="product-card">
-                        <div class="product-img">
-                            <img src="img/product-10.jpg" alt="文房雅器">
-                        </div>
-                        <div class="product-body">
-                            <div class="product-category" data-i18n="productcategory10">文房雅器</div>
-                            <div class="product-title"  data-i18n="producttitle10">竹节笔筒</div>
-                            <p class="product-desc" data-i18n="productdesc10">以竹为形，木为载体，书案之上的一抹清雅。</p>
-                            <div class="product-price">¥76</div>
-                            <div class="product-footer">
-                                <div class="product-rating">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-half"></i>
-                                    <span>(4.7)</span>
-                                </div>
-                                <a href="product-detail.html?id=010" class="btn btn-sm btn-outline-primary rounded-pill" data-i18n="viewDetail">查看详情</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- 产品 11 -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="product-card">
-                        <div class="product-img">
-                            <span class="product-tag" data-i18n="producttag2">新品</span>
-                            <img src="img/product-11.jpg" alt="家具系列">
-                        </div>
-                        <div class="product-body">
-                            <div class="product-category" data-i18n="productcategory11">家具系列</div>
-                            <div class="product-title"  data-i18n="producttitle11">实木花架</div>
-                            <p class="product-desc" data-i18n="productdesc11">简约实木花架，让绿植与木艺相映成趣。</p>
-                            <div class="product-price">¥128 <span class="old-price">¥168</span></div>
-                            <div class="product-footer">
-                                <div class="product-rating">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star"></i>
-                                    <span>(4.4)</span>
-                                </div>
-                                <a href="product-detail.html?id=011" class="btn btn-sm btn-outline-primary rounded-pill" data-i18n="viewDetail">查看详情</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- 产品 12 -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="product-card">
-                        <div class="product-img">
-                            <img src="img/product-12.jpg" alt="生活摆件">
-                        </div>
-                        <div class="product-body">
-                            <div class="product-category" data-i18n="productcategory12">生活摆件</div>
-                            <div class="product-title"  data-i18n="producttitle12">猫头鹰木雕</div>
-                            <p class="product-desc" data-i18n="productdesc12">憨态可掬的猫头鹰，守护你的书桌时光。</p>
-                            <div class="product-price">¥96</div>
-                            <div class="product-footer">
-                                <div class="product-rating">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <span>(4.9)</span>
-                                </div>
-                                <a href="product-detail.html?id=012" class="btn btn-sm btn-outline-primary rounded-pill" data-i18n="viewDetail">查看详情</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- 产品 8 -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="product-card">
-                        <div class="product-img">
-                            <span class="product-tag" data-i18n="producttag2">新品</span>
-                            <img src="img/product-8.jpg" alt="运动摆件">
-                        </div>
-                        <div class="product-body">
-                            <div class="product-category" data-i18n="prodCatStationery">木雕足球</div>
-                            <div class="product-title"  data-i18n="producttitle8">足球木雕</div>
-                            <p class="product-desc" data-i18n="productdesc8">圆润足球摆件尽显运动风情。</p>
-                            <div class="product-price">¥180</div>
-                            <div class="product-footer">
-                                <div class="product-rating">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-half"></i>
-                                    <span>(4.6)</span>
-                                </div>
-                                <a href="product-detail.html?id=008" class="btn btn-sm btn-outline-primary rounded-pill" data-i18n="viewDetail">查看详情</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <!-- ==================== 分类快捷卡片区 ==================== -->
+    <section class="section pt-0" id="categoryShortcuts">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="badge-custom" data-i18n="catShortcutBadge">产品分类</span>
+                <h2 data-i18n="catShortcutTitle">按分类浏览</h2>
+                <p data-i18n="catShortcutDesc">点击分类卡片，快速筛选您感兴趣的产品系列</p>
+            </div>
+            <div class="category-shortcuts"></div>
+        </div>
+    </section>
+
+    <!-- ==================== 产品筛选器 ==================== -->
+    <div class="filter-bar-wrapper">
+        <div class="container">
+            <div class="filter-bar">
+                <span class="filter-label" data-i18n="filterLabel"><i class="bi bi-funnel"></i> 筛选：</span>
+                <div class="filter-tags"></div>
+                <span class="filter-count" id="filterCount">共 58 件产品</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== 产品展示区 ==================== -->
+    <section class="section pt-0" id="products">
+        <div class="container">
+            <div class="row g-4" id="productGrid">
+            </div>
+            <div class="text-center mt-4" id="noResult" style="display:none;">
+                <i class="bi bi-inbox" style="font-size:48px;color:#ccc;"></i>
+                <p class="text-muted mt-2" data-i18n="noResult">该分类下暂无产品</p>
             </div>
         </div>
     </section>
@@ -437,8 +168,11 @@
     </a>
 
     <!-- ==================== JS ==================== -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/i18n.js?v=2"></script>
-    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="js/i18n.js?v=3" defer></script>
+    <script src="js/products-data.js?v=1" defer></script>
+    <script src="js/products-render.js?v=1" defer></script>
+    <script src="js/animations.js?v=1" data-cfasync="false"></script>
+    <script src="js/main.js?v=2" defer></script>
 </body>
 </html>

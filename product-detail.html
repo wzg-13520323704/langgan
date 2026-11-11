@@ -1,13 +1,16 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
     <title>产品详情 - Lang Gan Wooden</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" media="print" onload="this.media='all';this.onload=null;">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"></noscript>
+    <link rel="stylesheet" href="css/style.css?v=1">
     <style>
         .detail-section {
             padding-top: 130px;
@@ -74,6 +77,49 @@
             color: #ccc;
             margin-bottom: 1rem;
         }
+        .idea-contact-section {
+            margin-top: 60px;
+            padding: 40px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(0,0,0,0.06);
+            text-align: center;
+        }
+        .idea-contact-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+        .idea-contact-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 12px;
+        }
+        .idea-contact-desc {
+            font-size: 1.05rem;
+            color: #666;
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto 24px;
+        }
+        .idea-contact-btn {
+            display: inline-block;
+            padding: 14px 48px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #ff6b35 0%, #e55a2b 100%);
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(255, 107, 53, 0.3);
+        }
+        .idea-contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255, 107, 53, 0.4);
+            color: #fff;
+        }
     </style>
 </head>
 <body>
@@ -117,145 +163,41 @@
         </div>
     </section>
 
+    <script src="js/products-data.js?v=1"></script>
     <script>
     var _pdParams = new URLSearchParams(window.location.search);
     var _pdId = _pdParams.get('id');
     var _pdContainer = document.getElementById('detailContent');
 
-    var _pdProducts = {
-        '001': {
-            name: { zh: '逐光鹿', en: 'Lumina Fawn' },
-            image: 'img/products-1.jpg',
-            category: { zh: '生活摆件', en: 'Home Decor' },
-            price: '¥19',
-            oldPrice: '¥27',
-            description: { zh: '逐光鹿，献给热爱生活、勇攀高峰的你。纯手工雕刻，黑胡桃木精制。', en: 'Lumina Fawn, dedicated to those who love life and aspire to conquer new heights. Hand-carved from black walnut.' },
-            material: { zh: '黑胡桃木', en: 'Black Walnut' },
-            craft: { zh: '纯手工雕刻', en: 'Hand Carved' },
-            size: { zh: '约 15cm × 8cm × 20cm', en: 'Approx. 15cm × 8cm × 20cm' }
-        },
-        '002': {
-            name: { zh: '纸巾立挂', en: 'Tissue Holder' },
-            image: 'img/product-2.jpg',
-            category: { zh: '家具系列', en: 'Furniture Series' },
-            price: '¥25',
-            oldPrice: '¥36',
-            description: { zh: '木艺纸巾架，让生活充满治愈小确辛。', en: 'Wooden tissue holder, bringing healing moments to everyday life.' },
-            material: { zh: '榉木', en: 'Beech Wood' },
-            craft: { zh: '手工打磨', en: 'Hand Polished' },
-            size: { zh: '约 18cm × 12cm × 14cm', en: 'Approx. 18cm × 12cm × 14cm' }
-        },
-        '003': {
-            name: { zh: '精雕花鸟梳', en: 'Carved Floral Comb' },
-            image: 'img/product-3.jpg',
-            category: { zh: '生活用品', en: 'Daily Essentials' },
-            price: '¥68',
-            oldPrice: null,
-            description: { zh: '用生活的场景雕刻，带您领略木艺古典之美。', en: 'Carved with scenes of life, bringing you the classical beauty of woodcraft.' },
-            material: { zh: '黄杨木', en: 'Boxwood' },
-            craft: { zh: '精雕细刻', en: 'Exquisite Carving' },
-            size: { zh: '约 12cm × 5cm', en: 'Approx. 12cm × 5cm' }
-        },
-        '004': {
-            name: { zh: '原木装饰镜', en: 'Natural Wood Mirror' },
-            image: 'img/product-4.jpg',
-            category: { zh: '家具系列', en: 'Furniture Series' },
-            price: '¥58',
-            oldPrice: '¥79',
-            description: { zh: '匠心原木雕，映出生活自然之美。', en: 'Artisan wood carving, reflecting the natural beauty of life.' },
-            material: { zh: '橡木', en: 'Oak Wood' },
-            craft: { zh: '手工雕刻', en: 'Hand Carved' },
-            size: { zh: '约 30cm × 40cm', en: 'Approx. 30cm × 40cm' }
-        },
-        '005': {
-            name: { zh: '羊角木梳', en: 'Horn Wood Comb' },
-            image: 'img/product-5.jpg',
-            category: { zh: '生活用品', en: 'Daily Essentials' },
-            price: '¥99',
-            oldPrice: '¥129',
-            description: { zh: '羊角木梳，用打磨促使透光的羊角，透亮你的美。', en: 'Horn and wood comb, polished to a translucent glow, illuminating your beauty.' },
-            material: { zh: '天然羊角 + 黑金檀木', en: 'Natural Horn + Black Sandalwood' },
-            craft: { zh: '手工打磨抛光', en: 'Hand Polished' },
-            size: { zh: '约 18cm × 5cm', en: 'Approx. 18cm × 5cm' }
-        },
-        '006': {
-            name: { zh: '木制餐碗', en: 'Wooden Bowl' },
-            image: 'img/product-6.jpg',
-            category: { zh: '厨房用品', en: 'Kitchenware' },
-            price: '¥35',
-            oldPrice: '¥46',
-            description: { zh: '质朴木器，三餐陪伴，一日三餐烟火温暖。', en: 'Simple wooden ware, companion to every meal, warm and homely.' },
-            material: { zh: '枫木', en: 'Maple Wood' },
-            craft: { zh: '车旋工艺', en: 'Wood Turning' },
-            size: { zh: '约 15cm × 7cm', en: 'Approx. 15cm × 7cm' }
-        },
-        '007': {
-            name: { zh: '萌趣木雕', en: 'Cute Penguin Carving' },
-            image: 'img/product-7.jpg',
-            category: { zh: '生活摆件', en: 'Home Decor' },
-            price: '¥89',
-            oldPrice: null,
-            description: { zh: '萌趣企鹅立桌角治愈时光满心欢喜。', en: 'Adorable penguin desk companion, healing your moments with joy.' },
-            material: { zh: '榉木', en: 'Beech Wood' },
-            craft: { zh: '手工雕刻', en: 'Hand Carved' },
-            size: { zh: '约 8cm × 8cm × 12cm', en: 'Approx. 8cm × 8cm × 12cm' }
-        },
-        '008': {
-            name: { zh: '足球木雕', en: 'Football Wood Carving' },
-            image: 'img/product-8.jpg',
-            category: { zh: '生活摆件', en: 'Home Decor' },
-            price: '¥79',
-            oldPrice: '¥99',
-            description: { zh: '足球造型木雕摆件，献给热爱运动的你。', en: 'Football-shaped wood carving, dedicated to sports enthusiasts.' },
-            material: { zh: '黑胡桃木', en: 'Black Walnut' },
-            craft: { zh: '手工雕刻', en: 'Hand Carved' },
-            size: { zh: '约 10cm × 10cm × 10cm', en: 'Approx. 10cm × 10cm × 10cm' }
-        },
-        '009': {
-            name: { zh: '红木茶铲', en: 'Rosewood Tea Scoop' },
-            image: 'img/product-9.jpg',
-            category: { zh: '茶道器具', en: 'Tea Ware' },
-            price: '¥45',
-            oldPrice: '¥62',
-            description: { zh: '精选红木手工打磨，茶席间的优雅器物。', en: 'Selected rosewood, hand-polished, an elegant accessory for your tea ceremony.' },
-            material: { zh: '红木', en: 'Rosewood' },
-            craft: { zh: '手工打磨', en: 'Hand Polished' },
-            size: { zh: '约 15cm × 4cm', en: 'Approx. 15cm × 4cm' }
-        },
-        '010': {
-            name: { zh: '竹节笔筒', en: 'Bamboo Joint Pen Holder' },
-            image: 'img/product-10.jpg',
-            category: { zh: '文房雅器', en: 'Stationery' },
-            price: '¥76',
-            oldPrice: null,
-            description: { zh: '以竹为形，木为载体，书案之上的一抹清雅。', en: 'Inspired by bamboo, crafted in wood, a touch of elegance for your desk.' },
-            material: { zh: '楠竹', en: 'Bamboo' },
-            craft: { zh: '手工雕刻', en: 'Hand Carved' },
-            size: { zh: '约 10cm × 10cm × 12cm', en: 'Approx. 10cm × 10cm × 12cm' }
-        },
-        '011': {
-            name: { zh: '实木花架', en: 'Solid Wood Flower Stand' },
-            image: 'img/product-11.jpg',
-            category: { zh: '家具系列', en: 'Furniture Series' },
-            price: '¥128',
-            oldPrice: '¥168',
-            description: { zh: '简约实木花架，让绿植与木艺相映成趣。', en: 'Minimalist solid wood flower stand, where greenery meets woodcraft.' },
-            material: { zh: '松木', en: 'Pine Wood' },
-            craft: { zh: '榫卯结构', en: 'Mortise & Tenon' },
-            size: { zh: '约 30cm × 30cm × 60cm', en: 'Approx. 30cm × 30cm × 60cm' }
-        },
-        '012': {
-            name: { zh: '猫头鹰木雕', en: 'Owl Wood Carving' },
-            image: 'img/product-12.jpg',
-            category: { zh: '生活摆件', en: 'Home Decor' },
-            price: '¥96',
-            oldPrice: null,
-            description: { zh: '憨态可掬的猫头鹰，守护你的书桌时光。', en: 'A charming owl carving, guarding your desk moments.' },
-            material: { zh: '胡桃木', en: 'Walnut Wood' },
-            craft: { zh: '手工雕刻', en: 'Hand Carved' },
-            size: { zh: '约 10cm × 8cm × 15cm', en: 'Approx. 10cm × 8cm × 15cm' }
-        }
+    var _pdProducts = (function() {
+    var defaults = {
+        '生活摆件': { material:{zh:'黄杨木/黑胡桃木',en:'Boxwood / Black Walnut'}, craft:{zh:'手工雕刻',en:'Hand Carved'}, size:{zh:'约 15cm × 8cm × 20cm',en:'Approx. 15cm × 8cm × 20cm'} },
+        '家具系列': { material:{zh:'橡木/榉木',en:'Oak / Beech'}, craft:{zh:'榫卯工艺',en:'Mortise & Tenon'}, size:{zh:'约 30cm × 20cm × 40cm',en:'Approx. 30cm × 20cm × 40cm'} },
+        '生活用品': { material:{zh:'榉木',en:'Beech'}, craft:{zh:'手工打磨',en:'Hand Polished'}, size:{zh:'约 10cm × 5cm × 15cm',en:'Approx. 10cm × 5cm × 15cm'} },
+        '厨房用品': { material:{zh:'榉木',en:'Beech'}, craft:{zh:'整木挖制',en:'Solid Wood Carved'}, size:{zh:'约 20cm × 15cm × 5cm',en:'Approx. 20cm × 15cm × 5cm'} },
+        '茶道器具': { material:{zh:'红木/竹',en:'Rosewood / Bamboo'}, craft:{zh:'手工打磨',en:'Hand Polished'}, size:{zh:'约 10cm × 5cm × 5cm',en:'Approx. 10cm × 5cm × 5cm'} },
+        '文房雅器': { material:{zh:'竹/黄杨木',en:'Bamboo / Boxwood'}, craft:{zh:'手工打磨',en:'Hand Polished'}, size:{zh:'约 10cm × 5cm × 8cm',en:'Approx. 10cm × 5cm × 8cm'} },
+        '运动摆件': { material:{zh:'黄杨木',en:'Boxwood'}, craft:{zh:'手工雕刻',en:'Hand Carved'}, size:{zh:'约 15cm × 10cm × 15cm',en:'Approx. 15cm × 10cm × 15cm'} }
     };
+    var result = {};
+    if (typeof PRODUCTS === 'undefined') return result;
+    for (var i = 0; i < PRODUCTS.length; i++) {
+        var p = PRODUCTS[i];
+        var def = defaults[p.category] || defaults['生活摆件'];
+        result[p.id] = {
+            name: p.name,
+            image: p.image,
+            category: { zh: p.category, en: (PRODUCT_CATEGORIES[p.category] || {}).en || p.category },
+            price: '¥' + p.price,
+            oldPrice: p.oldPrice ? '¥' + p.oldPrice : '',
+            description: p.desc,
+            material: p.material || def.material,
+            craft: p.craft || def.craft,
+            size: p.size || def.size
+        };
+    }
+    return result;
+})();
 
     function _pdRender(lang) {
         lang = lang || 'zh';
@@ -268,9 +210,21 @@
 
         var oldPriceHtml = product.oldPrice ? '<span class="old-price">' + product.oldPrice + '</span>' : '';
 
+        // Build thumbnail gallery (use image as main + alternate placeholders)
+        var altImages = product.altImages || [];
+        if (!altImages.length) altImages = [product.image];
+        var galleryHtml = '<div class="detail-gallery">';
+        galleryHtml += '<img src="' + product.image + '" alt="' + product.name[lang] + '" class="detail-gallery-main" id="detailMainImg">';
+        galleryHtml += '<div class="detail-thumbnails">';
+        for (var ti = 0; ti < Math.min(altImages.length, 4); ti++) {
+            var activeClass = (ti === 0) ? ' active' : '';
+            galleryHtml += '<img src="' + altImages[ti] + '" class="detail-thumb' + activeClass + '" data-img="' + altImages[ti] + '" onclick="document.getElementById(\'detailMainImg\').src=this.getAttribute(\'data-img\');var sibs=this.parentElement.children;for(var j=0;j<sibs.length;j++)sibs[j].classList.remove(\'active\');this.classList.add(\'active\')">';
+        }
+        galleryHtml += '</div></div>';
+
         var html = '<div class="row g-5 align-items-start">';
         html += '<div class="col-lg-6">';
-        html += '<img src="' + product.image + '" alt="' + product.name[lang] + '" class="detail-img">';
+        html += galleryHtml;
         html += '</div>';
         html += '<div class="col-lg-6">';
         html += '<span class="detail-category">' + product.category[lang] + '</span>';
@@ -278,13 +232,30 @@
         html += '<div class="detail-price">' + product.price + oldPriceHtml + '</div>';
         html += '<p class="text-muted" style="font-size:1.05rem;">' + product.description[lang] + '</p>';
         html += '<div class="detail-info">';
-        html += '<h5>' + (lang === 'en' ? 'Material' : '材质') + '</h5><p>' + product.material[lang] + '</p>';
-        html += '<h5>' + (lang === 'en' ? 'Craft' : '工艺') + '</h5><p>' + product.craft[lang] + '</p>';
-        html += '<h5>' + (lang === 'en' ? 'Dimensions' : '规格尺寸') + '</h5><p>' + product.size[lang] + '</p>';
+        html += '<table class="specs-table"><tbody>';
+        html += '<tr><td><i class="bi bi-tree me-1"></i>' + (lang === 'en' ? 'Material' : '材质') + '</td><td>' + product.material[lang] + '</td></tr>';
+        html += '<tr><td><i class="bi bi-hammer me-1"></i>' + (lang === 'en' ? 'Craft' : '工艺') + '</td><td>' + product.craft[lang] + '</td></tr>';
+        html += '<tr><td><i class="bi bi-arrows-angle-expand me-1"></i>' + (lang === 'en' ? 'Size' : '规格') + '</td><td>' + product.size[lang] + '</td></tr>';
+        if (product.shipping) html += '<tr><td><i class="bi bi-truck me-1"></i>' + (lang === 'en' ? 'Shipping' : '发货') + '</td><td>' + product.shipping[lang] + '</td></tr>';
+        if (product.warranty) html += '<tr><td><i class="bi bi-shield-check me-1"></i>' + (lang === 'en' ? 'Warranty' : '售后') + '</td><td>' + product.warranty[lang] + '</td></tr>';
+        html += '</tbody></table>';
         html += '</div>';
-        html += '<a href="contact.html" class="btn btn-primary contact-btn"><i class="bi bi-chat-dots me-2"></i>' + (lang === 'en' ? 'View Details' : '查看详情') + '</a>';
+        html += '<a href="inquiry.html?id=' + _pdId + '&name=' + encodeURIComponent(product.name[lang]) + '&price=' + parseFloat(product.price.replace('¥','')) + '&image=' + encodeURIComponent(product.image) + '" class="btn btn-primary contact-btn" style="background:linear-gradient(135deg,#ff6b35,#e55a2b);border:none;"><i class="bi bi-chat-dots me-2"></i>' + (lang === 'en' ? 'Contact to Buy' : '联系购买') + '</a>';
         html += '<a href="Products.html" class="btn btn-outline-secondary contact-btn ms-3"><i class="bi bi-arrow-left me-2"></i>' + (lang === 'en' ? 'Back to Products' : '返回产品') + '</a>';
         html += '</div></div>';
+
+        // Craftsman's note
+        html += '<div class="craftsman-note">';
+        html += '<div class="craftsman-note-header"><i class="bi bi-chat-quote"></i><h5>' + (lang === 'en' ? 'From Our Craftsmaster' : '匠人寄语') + '</h5></div>';
+        html += '<p>' + (lang === 'en' ? 'Every piece is handcrafted with passion and precision. We select only the finest woods, carved through hundreds of meticulous steps, to bring you a work of art that carries the warmth of nature and the soul of craftsmanship.' : '每一件作品都倾注了匠人的心血与技艺。我们精选上等木材，经过数百道工序手工打磨，只为将最自然、最温暖的木艺之作呈现于您，愿您感受来自手工艺的温度与灵魂。') + '</p>';
+        html += '</div>';
+
+        html += '<div class="idea-contact-section">';
+        html += '<div class="idea-contact-icon"><i class="bi bi-lightbulb"></i></div>';
+        html += '<h3 class="idea-contact-title">' + (lang === 'en' ? 'Have an Innovative Idea?' : '您有更多新颖、创新的想法？') + '</h3>';
+        html += '<p class="idea-contact-desc">' + (lang === 'en' ? 'If you have more creative and innovative ideas, please contact our designers through the form. We look forward to bringing your vision to life.' : '如果您有更多新颖、创新的想法，请通过表单联系我们的设计师了解。我们期待将您的愿景变为现实。') + '</p>';
+        html += '<a href="contact.html" class="idea-contact-btn"><i class="bi bi-stars me-2"></i>' + (lang === 'en' ? 'Realize Your Idea' : '实现想法') + '</a>';
+        html += '</div>';
 
         _pdContainer.innerHTML = html;
 
@@ -292,9 +263,9 @@
         if (selectEl) selectEl.value = lang;
     }
 </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/i18n.js?v=2"></script>
-    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="js/i18n.js?v=3" defer></script>
+    <script src="js/main.js?v=2" defer></script>
     <script>
     (function() {
         var savedLang = localStorage.getItem('lang') || 'zh';
@@ -305,6 +276,34 @@
             selectEl.addEventListener('change', function() {
                 _pdRender(this.value);
             });
+        }
+    })();
+    </script>
+
+    <!-- Sticky Add to Cart 底部栏 -->
+    <div class="sticky-cart-bar" id="stickyCartBar">
+        <div class="container sticky-inner">
+            <div class="sticky-product">
+                <img src="" alt="" id="stickyCartImg">
+                <div class="sticky-info">
+                    <div class="sticky-name" id="stickyCartName"></div>
+                    <div class="sticky-price" id="stickyCartPrice"></div>
+                </div>
+            </div>
+            <a href="inquiry.html" id="stickyCartLink" class="btn btn-primary rounded-pill px-4"><i class="bi bi-chat-dots me-2"></i></a>
+        </div>
+    </div>
+    <script>
+    (function(){
+        var p = _pdProducts[_pdId];
+        if (p) {
+            var lang = localStorage.getItem('lang') || 'zh';
+            document.getElementById('stickyCartImg').src = p.image;
+            document.getElementById('stickyCartName').textContent = p.name[lang];
+            document.getElementById('stickyCartPrice').textContent = p.price;
+            var link = document.getElementById('stickyCartLink');
+            link.href = 'inquiry.html?id=' + _pdId + '&name=' + encodeURIComponent(p.name[lang]) + '&price=' + parseFloat(p.price.replace('¥','')) + '&image=' + encodeURIComponent(p.image);
+            link.innerHTML = '<i class="bi bi-chat-dots me-2"></i>' + (lang==='en'?'Contact to Buy':'联系购买');
         }
     })();
     </script>

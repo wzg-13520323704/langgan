@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+    <title>结账 - Lang Gan Wooden</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" media="print" onload="this.media='all';this.onload=null;">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"></noscript>
+    <link rel="stylesheet" href="css/style.css?v=1">
+    <style>
+        .checkout-section {
+            padding-top: 120px;
+            padding-bottom: 80px;
+            min-height: 80vh;
+        }
+        .checkout-card {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+        .checkout-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .checkout-title i {
+            color: var(--accent, #ff6b35);
+            font-size: 1.5rem;
+        }
+        .order-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .order-item:last-of-type {
+            border-bottom: none;
+        }
+        .order-item-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            object-fit: cover;
+            flex-shrink: 0;
+            background: #f5f5f5;
+        }
+        .order-item-info {
+            flex: 1;
+        }
+        .order-item-name {
+            font-weight: 600;
+            font-size: 1.05rem;
+            margin-bottom: 4px;
+        }
+        .order-item-price {
+            color: #d9534f;
+            font-weight: 600;
+        }
+        .order-item-qty {
+            color: #999;
+            font-size: 0.9rem;
+        }
+        .order-summary {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 2px solid #eee;
+        }
+        .order-summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 1rem;
+        }
+        .order-summary-total {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0 0;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #d9534f;
+            border-top: 2px solid #eee;
+            margin-top: 8px;
+        }
+        .paypal-container {
+            margin-top: 24px;
+            min-height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .paypal-loading {
+            text-align: center;
+            color: #999;
+        }
+        .paypal-loading .spinner-border {
+            color: var(--primary, #0d6efd);
+        }
+        .payment-success {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .payment-success i {
+            font-size: 5rem;
+            color: #198754;
+            margin-bottom: 16px;
+        }
+        .payment-success h3 {
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .payment-error {
+            background: #fff3f3;
+            border: 1px solid #f5c6cb;
+            border-radius: 12px;
+            padding: 16px;
+            color: #721c24;
+            margin-top: 16px;
+            display: none;
+        }
+        .payment-error.show {
+            display: block;
+        }
+        .btn-back {
+            margin-top: 12px;
+        }
+        @media (max-width: 768px) {
+            .checkout-card {
+                padding: 20px;
+            }
+            .checkout-title {
+                font-size: 1.35rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== 导航栏 ==================== -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                Lang Gan<span class="brand-dot"></span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+                aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html" data-i18n="navHome">首页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Products.html" data-i18n="navProducts">产品展示</a></li>
+                    <li class="nav-item"><a class="nav-link" href="features.html" data-i18n="navFeatures">产品特征</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html" data-i18n="navAbout">关于我们</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html" data-i18n="navContact">联系我们</a></li>
+                </ul>
+            </div>
+            <div class="lang-switch">
+                <select id="langSelect">
+                    <option value="zh">&#x1F1E8;&#x1F1F3; 中文</option>
+                    <option value="en">&#x1F1FA;&#x1F1F8; English</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== 结账区 ==================== -->
+    <section class="checkout-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div id="checkoutContent">
+                        <div class="text-center py-5">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">加载中...</span>
+                            </div>
+                            <p class="mt-3 text-muted">正在加载订单信息...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== Footer ==================== -->
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="footer-brand">琅玕工坊<span class="brand-dot"></span></div>
+                    <p class="footer-about">传承木作工艺，致力于为用户打造极致体验的木作精品。</p>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5>产品中心</h5>
+                    <ul class="footer-links">
+                        <li><a href="Products.html">全部产品</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5>支持服务</h5>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5>关于我们</h5>
+                    <ul class="footer-links">
+                        <li><a href="about.html">品牌故事</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5>快速链接</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">首页</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                &copy; 2026 琅玕工坊. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== Bootstrap JS ==================== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script>
+    (function() {
+        // ===== 支付开关：false = 禁用支付（跳转联系表单），true = 恢复 PayPal 结账 =====
+        var PAYMENT_ENABLED = false;
+
+        var checkoutContent = document.getElementById('checkoutContent');
+        var lang = localStorage.getItem('lang') || 'zh';
+        var paypalConfig = null;
+
+        var productsData = {
+            '001': { name: { zh: '逐光鹿', en: 'Lumina Fawn' }, image: 'img/products-1.jpg', price: 19.00, currency: 'USD' },
+            '002': { name: { zh: '纸巾立挂', en: 'Tissue Holder' }, image: 'img/product-2.jpg', price: 25.00, currency: 'USD' },
+            '003': { name: { zh: '精雕花鸟梳', en: 'Carved Floral Comb' }, image: 'img/product-3.jpg', price: 68.00, currency: 'USD' },
+            '004': { name: { zh: '原木装饰镜', en: 'Natural Wood Mirror' }, image: 'img/product-4.jpg', price: 58.00, currency: 'USD' },
+            '005': { name: { zh: '羊角木梳', en: 'Horn Wood Comb' }, image: 'img/product-5.jpg', price: 99.00, currency: 'USD' },
+            '006': { name: { zh: '木制餐碗', en: 'Wooden Bowl' }, image: 'img/product-6.jpg', price: 35.00, currency: 'USD' },
+            '007': { name: { zh: '萌趣木雕', en: 'Cute Penguin Carving' }, image: 'img/product-7.jpg', price: 89.00, currency: 'USD' },
+            '008': { name: { zh: '足球木雕', en: 'Football Wood Carving' }, image: 'img/product-8.jpg', price: 79.00, currency: 'USD' },
+            '009': { name: { zh: '红木茶铲', en: 'Rosewood Tea Scoop' }, image: 'img/product-9.jpg', price: 45.00, currency: 'USD' },
+            '010': { name: { zh: '竹节笔筒', en: 'Bamboo Pen Holder' }, image: 'img/product-10.jpg', price: 76.00, currency: 'USD' },
+            '011': { name: { zh: '实木花架', en: 'Solid Wood Flower Stand' }, image: 'img/product-11.jpg', price: 128.00, currency: 'USD' },
+            '012': { name: { zh: '猫头鹰木雕', en: 'Owl Wood Carving' }, image: 'img/product-12.jpg', price: 96.00, currency: 'USD' }
+        };
+
+        var params = new URLSearchParams(window.location.search);
+        var productId = params.get('id');
+        var qty = parseInt(params.get('qty')) || 1;
+        var product = productsData[productId];
+
+        if (!product) {
+            var fallbackName = params.get('name') || '琅玕工坊商品';
+            var fallbackPrice = parseFloat(params.get('price')) || 19.00;
+            var fallbackImage = params.get('image') || 'img/products-1.jpg';
+            product = {
+                name: { zh: fallbackName, en: fallbackName },
+                image: fallbackImage,
+                price: fallbackPrice,
+                currency: 'USD'
+            };
+        }
+
+        var productName = product.name[lang] || product.name.zh;
+        var productPrice = product.price;
+        var productImage = product.image;
+        var currency = product.currency || 'USD';
+        var totalPrice = (productPrice * qty).toFixed(2);
+
+        function renderCheckout() {
+            var html = '';
+            html += '<div class="checkout-card">';
+            html += '<div class="checkout-title"><i class="bi bi-cart-check"></i> ' + (lang === 'en' ? 'Order Summary' : '订单摘要') + '</div>';
+
+            html += '<div class="order-item">';
+            html += '<img src="' + productImage + '" alt="' + productName + '" class="order-item-img" onerror="this.src=\'img/products-1.jpg\'">';
+            html += '<div class="order-item-info">';
+            html += '<div class="order-item-name">' + productName + '</div>';
+            html += '<div class="order-item-price">$' + productPrice.toFixed(2) + ' ' + currency + '</div>';
+            html += '<div class="order-item-qty">' + (lang === 'en' ? 'Qty: ' : '数量: ') + qty + '</div>';
+            html += '</div>';
+            html += '</div>';
+
+            html += '<div class="order-summary">';
+            html += '<div class="order-summary-row"><span>' + (lang === 'en' ? 'Subtotal' : '小计') + '</span><span>$' + totalPrice + '</span></div>';
+            html += '<div class="order-summary-row"><span>' + (lang === 'en' ? 'Shipping' : '运费') + '</span><span style="color:#198754;">' + (lang === 'en' ? 'Free' : '免运费') + '</span></div>';
+            html += '<div class="order-summary-total"><span>' + (lang === 'en' ? 'Total' : '合计') + '</span><span>$' + totalPrice + ' ' + currency + '</span></div>';
+            html += '</div>';
+
+            html += '<div class="paypal-container" id="paypal-button-container">';
+            html += '<div class="paypal-loading"><div class="spinner-border spinner-border-sm me-2" role="status"></div>PayPal ' + (lang === 'en' ? 'Loading...' : '加载中...') + '</div>';
+            html += '</div>';
+
+            html += '<div class="payment-error" id="paymentError"></div>';
+
+            html += '<div class="text-center btn-back">';
+            html += '<a href="Products.html" class="btn btn-outline-secondary rounded-pill"><i class="bi bi-arrow-left me-2"></i>' + (lang === 'en' ? 'Back to Shop' : '返回商城') + '</a>';
+            html += '</div>';
+            html += '</div>';
+
+            var modeLabel = (paypalConfig && paypalConfig.mode === 'sandbox') ? 'Sandbox' : 'Live';
+            html += '<div class="checkout-card" style="font-size:0.9rem;color:#999;">';
+            html += '<strong style="color:#333;">' + (lang === 'en' ? 'Secure Payment' : '安全支付保障') + ' (' + modeLabel + ')</strong><br>';
+            html += (lang === 'en'
+                ? 'This is a test environment. No real charges will be made.'
+                : '当前为沙箱测试环境，不会产生真实扣款。');
+            html += '</div>';
+
+            checkoutContent.innerHTML = html;
+        }
+
+        function loadPayPalSDK(clientId, mode) {
+            var sdkUrl = 'https://www.paypal.com/sdk/js';
+            var params = '?client-id=' + encodeURIComponent(clientId) + '&currency=USD&intent=capture';
+            var script = document.createElement('script');
+            script.src = sdkUrl + params;
+            script.setAttribute('data-namespace', 'paypalSDK');
+            script.onload = function() {
+                renderPayPalButton();
+            };
+            script.onerror = function() {
+                var container = document.getElementById('paypal-button-container');
+                if (container) {
+                    container.innerHTML = '<div class="paypal-loading text-danger">' +
+                        (lang === 'en' ? 'PayPal SDK failed to load. Please refresh.' : 'PayPal SDK 加载失败，请刷新重试。') +
+                        '</div>';
+                }
+            };
+            document.body.appendChild(script);
+        }
+
+        function renderPayPalButton() {
+            if (typeof paypalSDK === 'undefined') {
+                document.getElementById('paypal-button-container').innerHTML =
+                    '<div class="paypal-loading text-danger">' +
+                    (lang === 'en' ? 'PayPal SDK failed to load. Please refresh the page.' : 'PayPal SDK 加载失败，请刷新页面重试。') +
+                    '</div>';
+                return;
+            }
+
+            paypalSDK.Buttons({
+                style: {
+                    layout: 'vertical',
+                    color: 'gold',
+                    shape: 'pill',
+                    label: 'paypal',
+                    tagline: false
+                },
+
+                createOrder: function() {
+                    return fetch('/api/paypal/create-order', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            items: [{
+                                id: productId || 'DEFAULT',
+                                name: productName,
+                                sku: 'LG-' + (productId || '000'),
+                                price: productPrice,
+                                quantity: qty,
+                                currency: currency
+                            }]
+                        })
+                    })
+                    .then(function(response) {
+                        if (!response.ok) {
+                            return response.json().then(function(err) { throw new Error(err.error || 'Failed to create order'); });
+                        }
+                        return response.json();
+                    })
+                    .then(function(data) {
+                        if (!data.id) throw new Error('No order ID returned');
+                        return data.id;
+                    })
+                    .catch(function(error) {
+                        showError(error.message);
+                        throw error;
+                    });
+                },
+
+                onApprove: function(data) {
+                    return fetch('/api/paypal/capture-order', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ orderId: data.orderID })
+                    })
+                    .then(function(response) {
+                        if (!response.ok) {
+                            return response.json().then(function(err) { throw new Error(err.error || 'Capture failed'); });
+                        }
+                        return response.json();
+                    })
+                    .then(function() {
+                        checkoutContent.innerHTML = '';
+                        var successHtml = '<div class="checkout-card">';
+                        successHtml += '<div class="payment-success">';
+                        successHtml += '<i class="bi bi-check-circle-fill"></i>';
+                        successHtml += '<h3>' + (lang === 'en' ? 'Payment Successful!' : '支付成功！') + '</h3>';
+                        successHtml += '<p class="text-muted">' + (lang === 'en' ? 'Thank you for your order.' : '感谢您的订单，我们会尽快处理。') + '</p>';
+                        successHtml += '<p style="font-size:0.9rem;color:#999;">Order ID: ' + data.orderID + '</p>';
+                        successHtml += '<a href="Products.html" class="btn btn-primary rounded-pill mt-3"><i class="bi bi-bag me-2"></i>' + (lang === 'en' ? 'Continue Shopping' : '继续购物') + '</a>';
+                        successHtml += ' <a href="index.html" class="btn btn-outline-secondary rounded-pill mt-3"><i class="bi bi-house me-2"></i>' + (lang === 'en' ? 'Home' : '返回首页') + '</a>';
+                        successHtml += '</div></div>';
+                        checkoutContent.innerHTML = successHtml;
+                    })
+                    .catch(function(error) {
+                        showError(error.message);
+                    });
+                },
+
+                onCancel: function() {
+                    showError(lang === 'en' ? 'Payment was cancelled.' : '支付已取消，如需购买请重新尝试。');
+                },
+
+                onError: function(err) {
+                    showError(lang === 'en'
+                        ? 'An error occurred during payment. Please try again.'
+                        : '支付过程中发生错误，请重试或联系客服。');
+                    console.error('PayPal error:', err);
+                }
+            }).render('#paypal-button-container');
+        }
+
+        function showError(message) {
+            var errorEl = document.getElementById('paymentError');
+            if (errorEl) {
+                errorEl.textContent = message;
+                errorEl.classList.add('show');
+                setTimeout(function() {
+                    errorEl.classList.remove('show');
+                }, 8000);
+            }
+        }
+
+        function init() {
+            // 支付关闭时：跳转到联系表单，客户通过表单留下联系方式
+            if (!PAYMENT_ENABLED) {
+                window.location.replace('contact.html');
+                return;
+            }
+
+            renderCheckout();
+
+            fetch('/api/paypal/config')
+                .then(function(res) { return res.json(); })
+                .then(function(config) {
+                    paypalConfig = config;
+                    if (!config.clientId) {
+                        document.getElementById('paypal-button-container').innerHTML =
+                            '<div class="paypal-loading text-danger">' +
+                            (lang === 'en'
+                                ? 'PayPal Client ID not configured. Please set PAYPAL_CLIENT_ID in environment variables.'
+                                : 'PayPal Client ID 未配置，请在环境变量中设置 PAYPAL_CLIENT_ID。') +
+                            '</div>';
+                        return;
+                    }
+                    loadPayPalSDK(config.clientId, config.mode);
+                    renderCheckout();
+                })
+                .catch(function() {
+                    document.getElementById('paypal-button-container').innerHTML =
+                        '<div class="paypal-loading text-danger">' +
+                        (lang === 'en' ? 'Failed to load PayPal config.' : '加载 PayPal 配置失败。') +
+                        '</div>';
+                });
+        }
+
+        init();
+    })();
+    </script>
+</body>
+</html>
