@@ -255,7 +255,7 @@ window.addEventListener('scroll', function () {
             '<p class="qv-desc">' + product.desc[lang] + '</p>' +
             '<div class="qv-price">¥' + product.price + oldPriceHtml + '</div>' +
             '<div class="qv-actions">' +
-            '<a href="product-detail.html?id=' + product.id + '" class="btn btn-primary rounded-pill px-4">' + (lang === 'en' ? 'View Details' : '查看详情') + '</a>' +
+            '<a href="product-detail.html?id=' + product.id + '" class="btn btn-primary rounded-pill px-4">' + (lang === 'en' ? 'View Details' : '参观') + '</a>' +
             '<a href="inquiry.html?id=' + product.id + '&name=' + encodeURIComponent(product.name[lang]) + '&price=' + product.price + '&image=' + encodeURIComponent(product.image) + '" class="btn btn-success rounded-pill px-4"><i class="bi bi-chat-dots me-1"></i>' + (lang === 'en' ? 'Contact to Buy' : '联系购买') + '</a>' +
             '</div></div>';
 
@@ -275,6 +275,20 @@ window.addEventListener('scroll', function () {
                 break;
             }
         }
+    });
+})();
+
+// ==================== 产品卡片点击跳转详情 ====================
+(function () {
+    document.addEventListener('click', function (e) {
+        // 点击卡片内的按钮/链接时，交给它们各自处理（快速预览、心愿单、参观按钮）
+        if (e.target.closest('button, a')) return;
+        var card = e.target.closest('.product-card');
+        if (!card) return;
+        var item = card.closest('.product-item');
+        var id = item ? item.getAttribute('data-id') : null;
+        if (!id) return;
+        window.location.href = 'product-detail.html?id=' + id;
     });
 })();
 

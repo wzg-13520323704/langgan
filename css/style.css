@@ -534,6 +534,7 @@ body {
     transition: var(--transition);
     border: 1px solid rgba(0, 0, 0, 0.05);
     height: 100%;
+    cursor: pointer;
 }
 
 .product-card:hover {

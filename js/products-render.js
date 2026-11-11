@@ -71,7 +71,7 @@ function buildProductCard(p, index) {
     '        <div class="product-rating">' + buildStarHTML(p.rating) + '</div>',
     '        <div style="display:flex;align-items:center;gap:8px;">',
     '          <button class="wishlist-btn" data-id="' + p.id + '" title="' + getI18n('addToWishlist', '加入心愿单') + '"><i class="bi bi-heart"></i></button>',
-    '          <a href="product-detail.html?id=' + p.id + '" class="btn btn-sm btn-outline-primary rounded-pill">' + getI18n('viewDetail', '查看详情') + '</a>',
+    '          <a href="product-detail.html?id=' + p.id + '" class="btn btn-sm btn-outline-primary rounded-pill">' + getI18n('viewDetail', '参观') + '</a>',
     '        </div>',
     '      </div>',
     '    </div>',
